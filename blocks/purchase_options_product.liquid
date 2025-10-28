@@ -1,0 +1,361 @@
+<div class="purchase-type">
+  <h4 class="purchase-type__title">{{ block.settings.block_title }}</h4>
+
+  <div class="purchase-type__tabs">
+    <label class="purchase-type__tab active" data-purchase="subscription">
+      <input type="radio" name="purchase_type" value="subscription" checked>
+      <span>{{ block.settings.subs_title }}</span>
+    </label>
+
+    <label class="purchase-type__tab" data-purchase="onetime">
+      <input type="radio" name="purchase_type" value="onetime">
+      <span>{{ block.settings.one_title }}</span>
+    </label>
+  </div>
+</div>
+
+<!-- Subscription Options -->
+<div class="purchase-schedule subscription-schedule active">
+  <h4 class="purchase-schedule__title">{{ block.settings.subscribe_title }}</h4>
+  <ul class="subscription-options__list list-unstyled">
+    {% for group in product.selling_plan_groups %}
+      {% for plan in group.selling_plans %}
+        {% assign plan_name = plan.name | downcase %}
+
+        {% assign months = 0 %}
+        {% for opt in plan.options %}
+          {% if opt.name == 'Order Frequency and Unit' %}
+            {% assign raw_value = opt.value | downcase %}
+            {% assign digits = '' %}
+            {% for i in (0..raw_value.size) %}
+              {% assign char = raw_value | slice: i, 1 %}
+              {% if char >= '0' and char <= '9' %}
+                {% assign digits = digits | append: char %}
+              {% endif %}
+            {% endfor %}
+            {% assign months = digits | plus: 0 %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign discount_percentage = 0 %}
+        {% for adj in plan.price_adjustments %}
+          {% if adj.value_type == 'percentage' %}
+            {% assign discount_percentage = adj.value %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign variant = product.selected_or_first_available_variant %}
+        {% assign base_price = variant.price %}
+        {% assign discount_multiplier = 100 | minus: discount_percentage %}
+        {% assign discounted_price = base_price | times: discount_multiplier | divided_by: 100 %}
+        {% assign savings_amount = base_price | minus: discounted_price %}
+
+        <li class="subscription-tier">
+          <label class="tier-label">
+            <!-- radio input acts like a tab -->
+            <input
+              type="radio"
+              class="tier-input"
+              name="subscription_tier"
+              value="{{ plan.id }}"
+              data-selling-plan="{{ plan.id }}"
+              data-variant-id="{{ variant.id }}"
+              data-quantity="1"
+              data-price="{{ discounted_price }}"
+              data-base-price="{{ base_price }}"
+            >
+
+            {% if months > 1 %}
+              {%- assign title = "Every " | append: months | append: ' months' -%}
+            {%- else -%}
+              {%- assign title = "Every " | append: months | append: ' month' -%}
+            {% endif %}
+
+
+            <div class="tier-content">
+              <div class="tier-left">
+                {%- assign no_title = false -%}
+
+                {%- for item in product.metafields.custom.purchase_text.value -%}
+                  {%- if item.title_id == title -%}
+                    {%- if item.title != blank -%}
+                      <span class="tier-title">{{ item.title | metafield_tag }}</span>
+                      {%- assign no_title = true -%}
+                    {%- else -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                
+                {%- if no_title == false -%}
+                  <span class="tier-title">{{ title }}</span>
+                {%- endif -%}
+
+                <span class="tier-badge">{{ block.settings.save_text }} {{ savings_amount | money }}</span>
+              </div>
+              <div class="tier-right">
+
+                <div class="tier-prices">
+                  <span class="tier-price">{{ discounted_price | money }}</span>
+                  <span class="tier-compare">{{ base_price | money }}</span>
+                </div>
+
+              </div>
+            </div>
+            
+          </label>
+
+          {%- for item in product.metafields.custom.purchase_text.value -%}
+            {%- if item.title_id == title -%}
+              <div class="tier-text">{{ item.text | metafield_tag }}</div>
+            {%- endif -%}
+          {%- endfor -%}
+
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- One-time Purchase Options -->
+<div class="purchase-schedule onetime-schedule">
+  <h4 class="purchase-schedule__title">{{ block.settings.choose_quantity }}</h4>
+  <ul class="onetime-options__list list-unstyled">
+    {% assign variant = product.selected_or_first_available_variant %}
+
+    {% for qty in product.metafields.custom.product_quantity_blocks.value %}
+
+      {% assign base_price = variant.price %}
+      {% assign total_price = base_price | times: qty.quantiy %}
+      {% assign discount_percent = qty.discount_percentage | default: 0 %}
+      {% assign discount_multiplier = 100 | minus: discount_percent %}
+      {% assign discounted_price = total_price | times: discount_multiplier | divided_by: 100 %}
+      {% assign savings = total_price | minus: discounted_price %}
+
+      <li class="onetime-tier">
+        <label class="tier-label">
+          <!-- radio input acts like tab -->
+          <input
+            type="radio"
+            class="tier-input"
+            name="onetime_tier"
+            data-selling-plan=""
+            data-variant-id="{{ variant.id }}"
+            data-quantity="{{ qty.quantiy }}"
+            data-price="{{ discounted_price }}"
+            data-base-price="{{ total_price }}"
+          >
+
+          <div class="tier-content">
+            <div class="tier-left">
+              <span class="tier-title">{{ qty.title | metafield_tag }}</span>
+                {% if savings > 0 %}
+                  <span class="tier-badge">{{ block.settings.save_text }} {{ savings | money }}</span>
+                {% endif %}
+            </div>
+            <div class="tier-right">
+
+              <div class="tier-prices">
+                <span class="tier-price">{{ discounted_price | money }}</span>
+                {% if savings > 0 %}
+                  <span class="tier-compare">{{ total_price | money }}</span>
+                {% endif %}
+              </div>
+            
+            </div>
+          </div>
+        </label>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('.shopify-product-form');
+    if (!form) return;
+
+    // --- Guarantee hidden inputs exist before anything happens ---
+    function ensureHiddenInput(name) {
+      let el = form.querySelector(`input[name="${name}"]`);
+      if (!el) {
+        el = document.createElement('input');
+        el.type = 'hidden';
+        el.name = name;
+        form.appendChild(el);
+      }
+      return el;
+    }
+
+    const sellingPlanInput = ensureHiddenInput('selling_plan');
+    const variantInput = form.querySelector('input[name="id"]');
+    const qtyInput = ensureHiddenInput('quantity');
+
+    // --- UI elements ---
+    const tabs = document.querySelectorAll('.purchase-type__tab');
+    const subBlock = document.querySelector('.subscription-schedule');
+    const oneBlock = document.querySelector('.onetime-schedule');
+    const subOptions = document.querySelectorAll('.subscription-tier input');
+    const oneOptions = document.querySelectorAll('.onetime-tier input');
+
+    // --- Price elements ---
+    const priceContainer = document.querySelector('[ref="priceContainer"]');
+    const priceEl = priceContainer?.querySelector('.price');
+    const compareEl = priceContainer?.querySelector('.compare-at-price');
+
+    // --- helpers ---
+    const highlightSelection = (groupSelector, input) => {
+      document.querySelectorAll(groupSelector).forEach(li => li.classList.remove('is-selected'));
+      const li = input.closest('li');
+      if (li) li.classList.add('is-selected');
+    };
+
+    // Utility: format to Shopify money
+    const formatMoney = (cents) => {
+      const symbol = (priceEl?.textContent.match(/^[^0-9]+/) || ['€'])[0];
+      const value = (cents / 100).toFixed(2).replace('.', ',');
+      return `${symbol}${value}`;
+    };
+
+    // Update price in the UI
+    const updatePriceDisplay = (input) => {
+      if (!input || !priceEl) return;
+
+      const priceCents = parseFloat(input.dataset.price || 0);
+      const baseCents = parseFloat(input.dataset.basePrice || 0);
+      const compareVisible = compareEl && baseCents > priceCents;
+
+      priceEl.textContent = formatMoney(priceCents);
+      if (compareEl) {
+        compareEl.textContent = formatMoney(baseCents);
+        compareEl.style.display = compareVisible ? 'inline' : 'none';
+      }
+
+      // Optional: also update button text price (if price appears inside)
+      const addToCartPrice = document.querySelector('.add-to-cart-text__content .price');
+      const addToCartCompare = document.querySelector('.add-to-cart-text__content .compare-at-price');
+      if (addToCartPrice) addToCartPrice.textContent = formatMoney(priceCents);
+      if (addToCartCompare) {
+        addToCartCompare.textContent = formatMoney(baseCents);
+        addToCartCompare.style.display = compareVisible ? 'inline' : 'none';
+      }
+    };
+
+    const applySubscription = (input) => {
+      if (!input) return;
+      sellingPlanInput.value = input.dataset.sellingPlan || '';
+      variantInput.value = input.dataset.variantId || variantInput.value;
+      qtyInput.value = input.dataset.quantity || 1;
+      highlightSelection('.subscription-tier', input);
+      updatePriceDisplay(input);
+    };
+
+    const applyOnetime = (input) => {
+      if (!input) return;
+      sellingPlanInput.value = ''; // no selling plan for one-time
+      variantInput.value = input.dataset.variantId || variantInput.value;
+      qtyInput.value = input.dataset.quantity || 1;
+      highlightSelection('.onetime-tier', input);
+      updatePriceDisplay(input);
+    };
+
+    const setActiveTab = (type) => {
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.purchase === type));
+      if (type === 'subscription') {
+        subBlock.classList.add('active');
+        oneBlock.classList.remove('active');
+        const first = subOptions[0];
+        if (first && !Array.from(subOptions).some(i => i.checked)) {
+          first.checked = true;
+          applySubscription(first);
+        } else {
+          const current = Array.from(subOptions).find(i => i.checked);
+          if (current) applySubscription(current);
+        }
+      } else {
+        subBlock.classList.remove('active');
+        oneBlock.classList.add('active');
+        const first = oneOptions[0];
+        if (first && !Array.from(oneOptions).some(i => i.checked)) {
+          first.checked = true;
+          applyOnetime(first);
+        } else {
+          const current = Array.from(oneOptions).find(i => i.checked);
+          if (current) applyOnetime(current);
+        }
+      }
+    };
+
+    // --- tab click handlers ---
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        setActiveTab(tab.dataset.purchase);
+      });
+    });
+
+    // --- selection change handlers ---
+    subOptions.forEach(inp => inp.addEventListener('change', () => applySubscription(inp)));
+    oneOptions.forEach(inp => inp.addEventListener('change', () => applyOnetime(inp)));
+
+    // --- initial setup ---
+    const activeTab = Array.from(tabs).find(t => t.classList.contains('active'));
+    setActiveTab(activeTab ? activeTab.dataset.purchase : 'subscription');
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Purchase Option",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Block title",
+      "default": "Purchase Type"
+    },
+    {
+      "type": "richtext",
+      "id": "subs_title",
+      "label": "Subscribe tab title",
+      "default": "<p>Subscribe & <strong>Save up to 20% off</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "one_title",
+      "label": "Buy once tab title",
+      "default": "<p>Buy Once</p>"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_title",
+      "label": "Subscribe title",
+      "default": "Schedule"
+    },
+    {
+      "type": "text",
+      "id": "choose_quantity",
+      "label": "Buy once title",
+      "default": "Choose Quantity"
+    },
+    {
+      "type": "text",
+      "id": "save_text",
+      "label": "[Save text]",
+      "default": "Save"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purchase Option",
+    
+    }
+  ]
+}
+{% endschema %} 

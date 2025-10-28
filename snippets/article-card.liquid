@@ -1,0 +1,64 @@
+
+{%- style -%}
+    .{{ section.id }} .article-card__blog{
+        color: {{ section.settings.blog_cl }};
+        font-size: {{ section.settings.blog_fs }}px;
+    }
+    
+    .{{ section.id }} .article-card__title{
+        color: {{ section.settings.blog_title_cl }};
+        font-size: {{ section.settings.blog_title_fs }}px;
+    }
+
+    .{{ section.id }} .article-card__btn{
+        color: {{ section.settings.blog_btn_cl }};
+        font-size: {{ section.settings.blog_btn_fs }}px;
+
+        {%- if section.settings.btn_underline == true -%}
+            text-decoration: underline;
+        {%- endif -%}
+    }
+
+    @media (max-width: 990px){
+        .{{ section.id }} .article-card__blog{
+            font-size: {{ section.settings.blog_fs_mob }}px;
+        }
+        
+        .{{ section.id }} .article-card__title{
+            font-size: {{ section.settings.blog_title_fs_mob }}px;
+        }
+
+        .{{ section.id }} .article-card__btn{
+            font-size: {{ section.settings.blog_btn_fs_mob }}px;
+        }
+    }
+{%- endstyle -%}
+
+<a href="{{ article.url }}" class="article-card" data-date="{{ article.published_at | date: '%s' }}"  data-tags="{{ article.tags | join: ',' }}">
+    <div class="article-card__image">
+        {% if article.image %}
+            <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.image.alt | escape }}" loading="lazy">
+        {% else %}
+            <div class="article-card__placeholder"></div>
+        {% endif %}
+    </div>
+    <div class="article-card__content">
+        {% if blog_title %}
+            <div class="article-card__blog">{{ blog_title }}</div>
+        {% endif %}
+
+        {% comment %} {% if article.tags.size > 0 %}
+            <p class="article-card__category">{{ article.tags.first }}</p>
+        {% endif %} {% endcomment %}
+
+        <div class="article-card__title">{{ article.title }}</div>
+
+        {%- if article.excerpt != blank -%}
+            <div class="article-card__excerpt">
+                {{ article.excerpt | strip_html | truncatewords: 20 }}
+            </div>
+        {%- endif -%}
+      
+        <div class="article-card__btn">Read More</div>
+    </div>
+</a>

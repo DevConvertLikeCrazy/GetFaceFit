@@ -1,0 +1,164 @@
+<div class="header-menu__mobile {{ block.id }}">
+    <div class="header-menu__mobile--wrapper">
+        {%- for item in section.settings.menu.links -%}
+
+            {%- assign show_megamenu = false -%}
+
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'megamenu' -%}
+                    {%- assign link_title = item.title | remove: ' ' | downcase -%}
+                    {%- assign block_id = block.settings.id | remove: ' ' | downcase -%}
+
+                    {%- if block_id == link_title -%}
+                        {%- assign show_megamenu = true -%}
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endfor -%}
+
+            {%- if show_megamenu == true -%}
+                {%- for block in section.blocks -%}
+                    {%- if block.type == 'megamenu' -%}
+                        {%- assign link_title = item.title | remove: ' ' | downcase -%}
+                        {%- assign block_id = block.settings.id | remove: ' ' | downcase -%}
+
+                        {%- if block_id == link_title -%}
+                            <div class="header-menu__mobile--item accordion__item {{ block.id }}">
+                                {%- style -%}
+                                    .header-menu__mobile .{{ block.id }} .header-menu__mobile--linkitem img{
+                                        width: {{ block.settings.img_mobile_width }}px;
+                                        height: {{ block.settings.img_mobile_height }}px;
+                                    }
+
+                                    .header-menu__mobile .{{ block.id }} .header__megamenu--image{
+                                        width: {{ block.settings.img_mob_width }}px;
+                                        height: {{ block.settings.img_mob_height }}px;
+                                    }
+                                
+                                    .header-menu__mobile .{{ block.id }} .header__megamenu--title{
+                                        color: {{ block.settings.mob_title_cl }};
+                                        font-size: {{ block.settings.mob_title_fs }}px;
+                                    }
+                                
+                                    .header-menu__mobile .{{ block.id }} .header__megamenu--text{
+                                        color: {{ block.settings.mob_text_cl }};
+                                        font-size: {{ block.settings.mob_text_fs }}px;
+                                    }
+                                
+                                    .header-menu__mobile .{{ block.id }} .header__megamenu--link{
+                                        color: {{ block.settings.mob_link_cl }};
+                                        font-size: {{ block.settings.mob_link_fs }}px;
+                                        {%- if block.settings.mob_underline -%}
+                                            text-decoration: underline;
+                                        {%- endif -%}
+                                    }
+
+                                    .header-menu__mobile .{{ block.id }} .header-menu__mobile--linkitem{
+                                        font-size: {{ block.settings.mob_mainlink_fs }}px;
+                                    }
+                                {%- endstyle -%}
+                                <div class="header-menu__mobile--link accordion__trigger">
+                                    <a href="{{ item.url }}" class="header-menu__mobile--linkitem">
+                                        {%- if block.settings.img_mobile != blank -%}
+                                            <img width="{{ block.settings.img_mobile_width }}" height="{{ block.settings.img_mobile_height }}" src="{{ block.settings.img_mobile | img_url: "master" }}" alt="{{ block.settings.img_mobile.alt }}">
+                                        {%- endif -%}
+                                        {{ item.title }}
+                                    </a>
+                                    
+                                    <svg class="plus" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.8346 22.1654L12.8346 15.1654L5.83464 15.1654L5.83464 12.832L12.8346 12.832L12.8346 5.83203L15.168 5.83203L15.168 12.832L22.168 12.832L22.168 15.1654L15.168 15.1654L15.168 22.1654L12.8346 22.1654Z" fill="#1D1E23" fill-opacity="0.5"/>
+                                    </svg>
+
+                                    <svg class="minus" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="5" y1="15" x2="23" y2="15" stroke="#1D1E23" stroke-opacity="0.5" stroke-width="2"/>
+                                    </svg>
+                                </div>
+
+                                <div class="header-menu__mobile--content accordion__content" style="display: none;">
+
+                                    <div class="header-menu__mobile--blocks">
+                                        {%- for item in (1..4) -%}
+                                            {%- assign url = 'mob_url_' | append: forloop.index -%}
+                                            {%- assign image = 'mob_image_' | append: forloop.index -%}
+                                            {%- assign title = 'mob_title_' | append: forloop.index -%}
+                                            {%- assign text = 'mob_text_' | append: forloop.index -%}
+                                
+                                            {%- if block.settings[image] != blank and block.settings[title] != blank -%}
+                                                <a href="{{ block.settings[url] }}" class="header__megamenu--item">
+                                                    {%- if block.settings[image] != blank -%}
+                                                        <div class="header__megamenu--image">
+                                                            <img width="{{ block.settings.img_mob_width }}" height="{{ block.settings.img_mob_height }}" src="{{ block.settings[image] | img_url: 'master' }}" alt="{{ block.settings[image].alt }}">
+                                                        </div>
+                                                    {%- endif -%}
+                                
+                                                    <div class="header__megamenu--item--content">
+                                                        {%- if block.settings[title] != blank -%}
+                                                            <div class="header__megamenu--title">{{ block.settings[title] }}</div>
+                                                        {%- endif -%}
+                                    
+                                                        {%- if block.settings[text] != blank -%}
+                                                            <div class="header__megamenu--text">{{ block.settings[text] }}</div>
+                                                        {%- endif -%}
+                                                    </div>
+                                                   
+                                                </a>
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                    </div>
+
+                                    <div class="header__megamenu--links">
+                                        {%- if block.settings.mob_link_1 != blank -%}
+                                            <a href="{{ block.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ block.settings.mob_link_1 }}</a>
+                                        {%- endif -%}
+
+                                        {%- if block.settings.mob_link_2 != blank -%}
+                                            <a href="{{ block.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ block.settings.mob_link_2 }}</a>
+                                        {%- endif -%}
+
+                                        {%- if block.settings.mob_link_3 != blank -%}
+                                            <a href="{{ block.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ block.settings.mob_link_3 }}</a>
+                                        {%- endif -%}
+
+                                        {%- if block.settings.mob_link_4 != blank -%}
+                                            <a href="{{ block.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ block.settings.mob_link_4 }}</a>
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+                            </div>
+                        {%- endif -%}
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- else -%}
+                <a href="{{ item.url }}" class="header-menu__mobile--item">{{ item.title }}</a>
+            {%- endif -%}
+
+        {%- endfor -%}
+
+        <style>
+            .main .header__megamenu--link{
+                color: {{ section.settings.mob_link_cl }};
+                font-size: {{ section.settings.mob_link_fs }}px;
+                {%- if section.settings.mob_underline -%}
+                    text-decoration: underline;
+                {%- endif -%}
+            }
+        </style>
+
+        <div class="header__megamenu--links main">
+            {%- if section.settings.mob_link_1 != blank -%}
+                <a href="{{ section.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ section.settings.mob_link_1 }}</a>
+            {%- endif -%}
+
+            {%- if section.settings.mob_link_2 != blank -%}
+                <a href="{{ section.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ section.settings.mob_link_2 }}</a>
+            {%- endif -%}
+
+            {%- if section.settings.mob_link_3 != blank -%}
+                <a href="{{ section.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ section.settings.mob_link_3 }}</a>
+            {%- endif -%}
+
+            {%- if section.settings.mob_link_4 != blank -%}
+                <a href="{{ section.settings.mob_url_link_1 }}" class="header__megamenu--link">{{ section.settings.mob_link_4 }}</a>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

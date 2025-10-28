@@ -1,0 +1,51 @@
+<div class="section-products__item">
+    <div class="section-products__image">
+        {%- if block.settings.image != blank -%}
+            <img width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" src="{{ block.settings.image | img_url: "master" }}" alt="{{ block.settings.image.alt }}">
+        {%- else -%}
+            <img width="{{ product.images[0].width }}" height="{{ product.images[0].height }}" src="{{ product.images[0] | img_url: "master" }}" alt="{{ product.images[0].alt }}">
+        {%- endif -%}
+    </div>
+
+    {%- if block.settings.rating != blank -%}
+        <div class="section-products__rating">
+            <img width="{{ section.settings.rating_width }}" height="{{ section.settings.rating_height }}" src="{{ block.settings.rating | img_url: 'master' }}" alt="{{ block.settings.rating.alt }}">
+        </div>
+    {%- endif -%}
+
+    <div class="section-products__title-price">
+        <div class="section-products__prodtitle">{{ product.title }}</div>
+        <div class="section-products__price">
+            {{ product.price | money }}
+            {%- if product.compare_at_price > product.price -%}
+                <span class="product__compare">{{ product.compare_at_price | money }}</span>
+            {%- endif -%}
+        </div>
+    </div>
+
+    {%- if product.metafields.custom.short_description != blank -%}
+        <div class="section-products__description">{{ product.metafields.custom.short_description }}</div>
+    {%- elsif block.settings.text != blank -%}
+        <div class="section-products__description">{{ block.settings.text }}</div>
+    {%- else -%}
+        <div class="section-products__description">{{ product.description }}</div>
+    {%- endif -%}
+
+    {% liquid
+        assign id = 'BuyButtons-ProductSubmitButton-' | append: block.id
+    %}
+
+    {%- assign can_add_to_cart = false -%}
+    {%- if product.available == true -%}
+        {%- assign can_add_to_cart = true -%}
+    {%- endif -%}
+
+    <div class="section-products__buttons">
+        {%- if section.settings.btn_text != blank -%}
+        <a class="section-products__shopnow" href="{{ product.url }}">{{ section.settings.btn_text }}</a>
+        {%- endif -%}
+        {%- if section.settings.qa == true -%}
+            {% render 'quick-add-button', product: product, section_id: section.id %}
+        {%- endif -%}
+    </div>
+</div>

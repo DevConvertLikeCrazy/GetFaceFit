@@ -1,0 +1,210 @@
+.purchase-type__title{
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+	margin-bottom: 16px;
+}
+
+.purchase-type__tabs {
+	margin-bottom: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.purchase-type__tab {
+	border: 0.5px solid #0000004D;
+	min-height: 54px;
+	padding: 11px 16px;
+	cursor: pointer;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 8px;
+}
+
+.purchase-type__tab span {
+	color: #00000099;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1;
+	letter-spacing: 0px;
+	vertical-align: middle;
+}
+
+.purchase-type__tab.active span {
+	color: #000000;
+}
+
+.purchase-type__tab span strong {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+	background: #0064E6;
+	color: #fff;
+	padding: 4px 12px;
+}
+
+.purchase-type__tab input,
+.tier-label input {
+	margin: 0;
+}
+
+.tier-prices{
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.subscription-tier,
+.onetime-tier {
+	border: 0.5px solid #0000004D;
+	margin-bottom: 16px;
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+	padding: 12px 16px;
+
+}
+
+.tier-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	margin-bottom: 6px;
+
+}
+
+.tier-text{
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+	color: #00000080;
+}
+
+.tier-text em{
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+	margin-top: 6px;
+	display: block;
+	font-style: normal;
+	color: #00000080;
+}
+
+.tier-content {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tier-left{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.tier-title {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+	display: flex;
+	align-items: center;
+}
+
+.tier-badge {
+	background: #0064e6;
+	color: #fff;
+	padding: 2px 4px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: 0;
+	vertical-align: middle;
+}
+
+.tier-price {
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	letter-spacing: 0;
+	text-align: right;
+	vertical-align: middle;
+	color: #000000;
+}
+
+.tier-compare {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 100%;
+	letter-spacing: 0;
+	text-align: right;
+	vertical-align: middle;
+	color: #00000080;
+}
+
+.purchase-schedule {
+	display: none;
+}
+
+.purchase-schedule.active {
+	display: block;
+}
+
+.purchase-type__tab {
+	cursor: pointer;
+}
+
+.purchase-type input[type="radio"],
+.purchase-type input[type="checkbox"],
+.purchase-schedule input[type="radio"],
+.purchase-schedule [type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 0.54px solid #00000080;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Активний стан (вибрано) */
+.purchase-type input[type="radio"]:checked,
+.purchase-type input[type="checkbox"]:checked,
+.purchase-schedule input[type="radio"]:checked,
+.purchase-schedule [type="checkbox"]:checked  {
+  border-color: #000;
+  background-color: #000;
+}
+
+/* Біле коло всередині, коли активний */
+.purchase-type input[type="radio"]:checked::after,
+.purchase-type input[type="checkbox"]:checked::after,
+.purchase-schedule input[type="radio"]:checked::after,
+.purchase-schedule input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}

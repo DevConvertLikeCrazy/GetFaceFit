@@ -1,0 +1,80 @@
+{%- style -%}
+
+    .{{ block.id }} .header__megamenu--rating img{
+        width: {{ block.settings.rating_width }}px;
+        height: {{ block.settings.rating_height }}px;
+        object-fit: contain;
+    }
+
+    .{{ block.id }} .header__megamenu--title{
+        color: {{ block.settings.title_cl }};
+        font-size: {{ block.settings.title_fs }}px;
+    }
+
+    .{{ block.id }} .header__megamenu--text{
+        color: {{ block.settings.text_cl }};
+        font-size: {{ block.settings.text_fs }}px;
+    }
+
+    .{{ block.id }} .header__megamenu--link{
+        color: {{ block.settings.link_cl }};
+        font-size: {{ block.settings.link_fs }}px;
+        {%- if block.settings.underline -%}
+            text-decoration: underline;
+        {%- endif -%}
+    }
+
+    {%- if block.settings.show_border == true -%}
+        .{{ block.id }} .header__megamenu--wrapper{
+           border-bottom: 0.5px solid #DFDFDF;
+           margin-bottom: 24px;
+        }
+    {%- endif -%}
+
+{%- endstyle -%}
+
+<div class="header__megamenu {{ block.id }}">
+    <div class="container">
+        <div class="header__megamenu--wrapper ">
+            {%- for item in (1..4) -%}
+                {%- assign url = 'url_' | append: forloop.index -%}
+                {%- assign image = 'image_' | append: forloop.index -%}
+                {%- assign rating = 'rating_' | append: forloop.index -%}
+                {%- assign title = 'title_' | append: forloop.index -%}
+                {%- assign text = 'text_' | append: forloop.index -%}
+    
+                {%- if block.settings[image] != blank and block.settings[title] != blank -%}
+                    <a href="{{ block.settings[url] }}" class="header__megamenu--item">
+                        {%- if block.settings[image] != blank -%}
+                            <div class="header__megamenu--image">
+                                <img width="{{ block.settings[image].width }}" height="{{ block.settings[image].height }}" src="{{ block.settings[image] | img_url: 'master' }}" alt="{{ block.settings[image].alt }}">
+                            </div>
+                        {%- endif -%}
+    
+                        {%- if block.settings[rating] != blank -%}
+                            <div class="header__megamenu--rating">
+                                <img width="{{ block.settings.rating_width }}" height="{{ block.settings.rating_height }}" src="{{ block.settings[rating] | img_url: 'master' }}" alt="{{ block.settings[rating].alt }}">
+                            </div>
+                        {%- endif -%}
+    
+                        {%- if block.settings[title] != blank -%}
+                            <div class="header__megamenu--title">{{ block.settings[title] }}</div>
+                        {%- endif -%}
+    
+                        {%- if block.settings[text] != blank -%}
+                            <div class="header__megamenu--text">{{ block.settings[text] }}</div>
+                        {%- endif -%}
+                    </a>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    
+        <div class="header__megamenu--links">
+            <a href="{{ block.settings.url_link_1 }}" class="header__megamenu--link">{{ block.settings.link_1 }}</a>
+            <a href="{{ block.settings.url_link_2 }}" class="header__megamenu--link">{{ block.settings.link_2 }}</a>
+            <a href="{{ block.settings.url_link_3 }}" class="header__megamenu--link">{{ block.settings.link_3 }}</a>
+            <a href="{{ block.settings.url_link_4 }}" class="header__megamenu--link">{{ block.settings.link_4 }}</a>
+        </div>
+    </div>
+
+</div>

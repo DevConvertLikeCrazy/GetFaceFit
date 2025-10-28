@@ -1,0 +1,80 @@
+{%- doc -%}
+  Renders a slideshow slide component.
+
+  @param {number} index - the index of the slide
+  @param {string} [children] - The content of the slideshow slide
+  @param {string} [class] - HTML class attribute of the slideshow slide
+  @param {string} [style] - HTML style attribute of the slideshow slide
+  @param {string} [attributes] - Additional HTML attributes to add to the slideshow slide
+  @param {boolean} [hidden] - Hidden slides will not be shown in the slideshow
+  @param {string} [slide_id] - The unique id assigned to the slide amongst all slides in the slideshow
+  @param {string} [media_fit] - { 'cover', 'contain' } - CSS property for how the media should be fit in the slide
+
+  @example
+  {% render 'slideshow-slide', index: 0, children: imageElement, slide_id: 'slide-1', hidden: false, media_fit: 'cover' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign class = class | strip | strip_newlines
+  assign style = style | strip | strip_newlines
+-%}
+
+<slideshow-slide
+  ref="slides[]"
+  aria-hidden="{% if index == 0 %}false{% else %}true{% endif %}"
+  style="view-timeline-name: --slide-{{ index }}; --product-media-fit: {{ media_fit | default: 'cover' }};"
+  {% if class != blank %}
+    class="{{ class }}"
+  {% endif %}
+  {{ attributes }}
+  {% if style != blank %}
+    style="{{ style }}"
+  {% endif %}
+  {% if slide_id != blank %}
+    slide-id="{{ slide_id }}"
+  {% endif %}
+  {% if hidden == true %}
+    hidden
+  {% endif %}
+  {{ attributes }}
+>
+
+  {%- if index == 0 -%}
+    {%- if button_text != blank -%}
+      <button class="product-video-button" style="color: {{ button_color }}; border-color: {{ button_color }};">
+        {%- if button_icon != blank -%}
+          <img
+            class="product-video-button__icon"
+            src="{{- button_icon | image_url: width: 20 -}}"
+            alt="{{- button_icon.alt | escape -}}"
+            loading="lazy"
+            width="10"
+            height="13">
+        {%- endif -%}
+        <span class="product-video-button__text">
+          {{ button_text }}
+        </span>
+      </button>
+      <style>
+        .product-media-container .product-video-button {
+          font-size: {{ button_font_size }};
+        }
+
+        .product-video-button__icon {
+          max-width: {{ button_icon_width }}px;
+        }
+
+        @media screen and (max-width: 749px) {
+          .product-media-container .product-video-button {
+            font-size: {{ button_mob_font_size }};
+          }
+
+          .product-video-button__icon {
+            max-width: {{ button_mob_icon_width }}px;
+          }
+        }
+      </style>
+    {%- endif -%}
+  {%- endif -%}
+  {{ children }}
+</slideshow-slide>

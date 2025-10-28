@@ -1,0 +1,261 @@
+{% assign display_mobile = 'none' %}
+{% assign display_desktop = 'none' %}
+
+{% if block.settings.show_on == 'mobile' %}
+  {% assign display_mobile = 'flex' %}
+{% endif %}
+{% if block.settings.show_on == 'desktop' %}
+  {% assign display_desktop = 'flex' %}
+{% endif %}
+{% if block.settings.show_on == 'both' %}
+  {% assign display_mobile = 'flex' %}
+  {% assign display_desktop = 'flex' %}
+{% endif %}
+
+{% comment %}
+  style="
+    --display-desktop: {{display_desktop}};
+    --display-mobile: {{display_mobile}};
+  "
+  *****************
+  {
+    display: var(--display-desktop);
+
+    @media screen and (max-width: 750px) {
+      display: var(--display-mobile);
+    }
+  }
+  *****************
+  {
+    "type": "select",
+    "id": "show_on",
+    "label": "Display on",
+    "options": [
+      {
+        "value": "both",
+        "label": "Both Mobile and Desktop"
+      },
+      {
+        "value": "mobile",
+        "label": "Mobile Only"
+      },
+      {
+        "value": "desktop",
+        "label": "Desktop Only"
+      }
+    ],
+    "default": "both",
+    "info": "Choose which devices this element should be visible on."
+  },
+{% endcomment %}
+
+<div
+  class="emails-list-wrapper"
+  style="
+    --align-list: {{ block.settings.list_position }};
+    --font-size: {{ block.settings.font_size }}rem;
+    --font-size-mobile: {{ block.settings.font_size_mobile }}rem;
+    --link-color: {{ block.settings.link_color | default: 'currentColor' }};
+    --gap-mobile: {{ block.settings.gap_mobile }}px;
+    --gap-desktop: {{ block.settings.gap_desktop }}px;
+    --display-desktop: {{display_desktop}};
+    --display-mobile: {{display_mobile}};
+  "
+  {{ block.shopify_attributes }}
+>
+  {% capture text_style %}
+    {% if block.settings.is_text_underlined %}
+      style="text-decoration: underline;"
+      {% else %}
+      style="text-decoration: none;"
+    {% endif %}
+  {% endcapture %}
+
+  <ul
+    class="emails-list"
+  >
+    {% for i in (1..5) %}
+      {% assign email_setting_id = 'contact_email_' | append: i %}
+      {% assign email_address = block.settings[email_setting_id] %}
+
+      {% if email_address != blank %}
+        <li class="emails-list__item">
+          <a href="mailto:{{ email_address | escape }}" {{ text_style }}>
+            {{ email_address }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .emails-list-wrapper {
+    width: 100%;
+    justify-content: var(--align-list);
+    display: var(--display-desktop);
+  }
+  .emails-list {
+    display: flex;
+    align-items: var(--align-list);
+    flex-wrap: wrap;
+    list-style: none;
+    gap: var(--gap-desktop);
+    padding: 0;
+    margin: 0;
+  }
+  .emails-list__item * {
+    font-size: var(--font-size);
+  }
+
+  .emails-list a {
+    color: var(--link-color);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+
+  @media screen and (max-width: 750px) {
+    .emails-list-wrapper {
+      display: var(--display-mobile);
+    }
+    .emails-list {
+      gap: var(--gap-mobile);
+      font-size: var(--font-size-mobile);
+      flex-direction: column;
+    }
+    .emails-list__item * {
+      font-size: var(--font-size-mobile);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Contact emails list",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "Display on",
+      "options": [
+        {
+          "value": "both",
+          "label": "Both Mobile and Desktop"
+        },
+        {
+          "value": "mobile",
+          "label": "Mobile Only"
+        },
+        {
+          "value": "desktop",
+          "label": "Desktop Only"
+        }
+      ],
+      "default": "both",
+      "info": "Choose which devices this element should be visible on."
+    },
+    {
+      "type": "header",
+      "content": "Email Links (Up to 5)"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_1",
+      "label": "Contact Email 1"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_2",
+      "label": "Contact Email 2"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_3",
+      "label": "Contact Email 3"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_4",
+      "label": "Contact Email 4"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_5",
+      "label": "Contact Email 5"
+    },
+    {
+      "type": "header",
+      "content": "Styling and Appearance"
+    },
+    {
+      "type": "select",
+      "id": "list_position",
+      "label": "List Position",
+      "options": [
+        { "value": "start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Text Color",
+      "default": "#3B82F6"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_text_underlined",
+      "default": false,
+      "label": "Text underlined?"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "unit": "rem",
+      "min": 0.8,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font Size (Mobile)",
+      "unit": "rem",
+      "min": 0.8,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "label": "Gap",
+      "unit": "px",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Gap (Mobile)",
+      "unit": "px",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact emails list"
+    }
+  ]
+}
+{% endschema %}

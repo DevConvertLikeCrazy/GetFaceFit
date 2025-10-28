@@ -1,0 +1,385 @@
+
+{{ 'section-products.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+
+{% style %}
+
+    .{{ section.id }}{
+        padding-top: {{ section.settings.pt }}px;
+        padding-bottom: {{ section.settings.pb }}px;
+    }
+
+    .{{ section.id }} .section-products__rating{
+        width: {{ section.settings.rating_width }}px;
+        height: {{ section.settings.rating_height }}px;
+        object-fit: contain;
+    }
+
+    .{{ section.id }} .section-products__item{
+        max-width: calc(100% / {{ section.settings.products_to_show }})
+    }
+
+    .{{ section.id }} .section-products__title{
+        font-size: {{ section.settings.title_fs }}px;
+        color: {{ section.settings.title_cl }};
+    }
+
+    .{{ section.id }} .section-products__prodtitle{
+        font-size: {{ section.settings.prod_title_fs }}px;
+        color: {{ section.settings.prod_title_cl }};  
+    }
+
+    .{{ section.id }} .section-products__price{
+        font-size: {{ section.settings.prod_price_fs }}px;
+        color: {{ section.settings.prod_price_cl }}; 
+    }
+
+    .{{ section.id }} .section-products__price .product__compare{
+        font-size: {{ section.settings.prod_price_fs }}px;
+        color: {{ section.settings.prod_price_cl }}; 
+    }
+
+    .{{ section.id }} .section-products__description{
+        font-size: {{ section.settings.prod_text_fs }}px;
+        color: {{ section.settings.prod_text_cl }}; 
+    }
+
+    .{{ section.id }} .section-products__shopnow{
+        background: {{ section.settings.prod_btn_bg }};
+        color: {{ section.settings.prod_btn_cl }};
+        font-size: {{ section.settings.prod_btn_fs }}px;
+    }
+
+    @media(max-width: 990px){
+
+        .{{ section.id }}{
+            padding-top: {{ section.settings.pt_mob }}px;
+            padding-bottom: {{ section.settings.pb_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__title{
+            font-size: {{ section.settings.title_fs_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__prodtitle{
+            font-size: {{ section.settings.prod_title_fs_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__price{
+            font-size: {{ section.settings.prod_price_fs_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__price .product__compare{
+            font-size: {{ section.settings.prod_price_fs_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__description{
+            font-size: {{ section.settings.prod_text_fs_mob }}px;
+        }
+
+        .{{ section.id }} .section-products__shopnow{
+            font-size: {{ section.settings.prod_btn_fs_mob }}px;
+        }
+    }
+{% endstyle %}
+
+
+<section class="section-products container {{ section.id }}">
+    <div class="section-products__wrapper">
+        <div class="section-products__title">{{ section.settings.title }}</div>
+
+        <div class="section-products__products">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'product' -%}
+                    {%- assign product = block.settings.product -%}
+
+                    {%- if product != blank -%}
+                        {%- render 'product-card-new', product: product -%}
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "clc-collection-block",
+    "max_blocks": 4,
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "title_cl",
+            "label": "Title color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "title_fs",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Title font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "title_fs_mob",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Title font-size mobile",
+            "default": 24
+        },
+        {
+            "type": "select",
+            "id": "products_to_show",
+            "label": "Number of items displayed",
+            "options": [
+                {
+                    "value": "3",
+                    "label": "3"
+                },
+                {
+                    "value": "4",
+                    "label": "4"
+                },
+            ],
+            "default": "3"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text (Shop now)",
+            "default": "SHOP NOW"
+        },
+        {
+            "type": "color",
+            "id": "prod_btn_bg",
+            "label": "Button background",
+            "default": "#0064E6"
+        },
+        {
+            "type": "color",
+            "id": "prod_btn_cl",
+            "label": "Button color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "range",
+            "id": "prod_btn_fs",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Button font-size",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "prod_btn_fs_mob",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Button font-size mobile",
+            "default": 16
+        },
+        {
+            "type": "header",
+            "content": "Product card style"
+        },
+        {
+            "type": "checkbox",
+            "id": "qa",
+            "label": "Show [Add to cart] button",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "rating_width",
+            "min": 30,
+            "max": 230,
+            "step": 2,
+            "unit": "px",
+            "label": "Rating width",
+            "default": 90
+        },
+        {
+            "type": "range",
+            "id": "rating_height",
+            "min": 3,
+            "max": 30,
+            "step": 1,
+            "unit": "px",
+            "label": "Rating height",
+            "default": 15
+        },
+
+        {
+            "type": "color",
+            "id": "prod_title_cl",
+            "label": "Title color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "prod_title_fs",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Title font-size",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "prod_title_fs_mob",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Title font-size mobile",
+            "default": 16
+        },
+        {
+            "type": "color",
+            "id": "prod_price_cl",
+            "label": "Price color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "prod_price_fs",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Price font-size",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "prod_price_fs_mob",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Price font-size mobile",
+            "default": 16
+        },
+        {
+            "type": "color",
+            "id": "prod_text_cl",
+            "label": "Text color",
+            "default": "#43434380"
+        },
+        {
+            "type": "range",
+            "id": "prod_text_fs",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Text font-size",
+            "default": 15
+        },
+        {
+            "type": "range",
+            "id": "prod_text_fs_mob",
+            "min": 10,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+            "label": "Text font-size mobile",
+            "default": 15
+        },
+        {
+            "type": "header",
+            "content": "Section style"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+
+        {
+            "type": "range",
+            "id": "pt_mob",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding top mobile",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb_mob",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding bottom mobile",
+            "default": 0
+        },
+    ],
+    "blocks": [
+        {
+            "name": "Product",
+            "type": "product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Custom image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "rating",
+                    "label": "Rating"
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Custom description"
+                },
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "clc-collection-block"
+      }
+    ]
+  }
+{% endschema %}

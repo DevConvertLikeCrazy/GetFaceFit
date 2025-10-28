@@ -1,0 +1,93 @@
+<style>
+  footer{
+    --localization-background-color: {{ block.settings.localization_background_color }};
+  }
+  .{{block.id}} {
+      @media screen and (max-width: 749px) {
+          dropdown-localization-component {
+              display: block !important;
+          }
+      }
+  }
+</style>
+
+{% liquid
+  assign show_language = block.settings.show_language
+  if localization.available_languages.size <= 1
+    assign show_language = false
+  endif
+
+  assign show_country = block.settings.show_country
+  if localization.available_countries.size <= 1
+    assign show_country = false
+  endif
+
+  if show_country or show_language
+    render 'dropdown-localization', padding_y: block.settings.padding_y, hide_on_mobile: block.settings.hide_on_mobile, show_country: show_country, show_language: show_language, country_style: block.settings.country_selector_style, localization_position: block.settings.localization_position
+  endif
+%}
+
+{% schema %}
+{
+  "name": "Localization dropdown",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_language",
+      "label": "Show language",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country",
+      "label": "Show coontry",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "country_selector_style",
+      "label": "t:settings.flag",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "localization_position",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "right",
+          "label": "t:options.left"
+        },
+        {
+          "value": "left",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Padding vertical",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "label": "Background Color",
+      "id": "localization_background_color",
+      "default": "#FFF"
+    }
+  ],
+  "presets": [{ "name": "Localization dropdown" }]
+}
+{% endschema %}

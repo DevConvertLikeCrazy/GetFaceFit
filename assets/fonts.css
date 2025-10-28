@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'GetFaceFit Display';
+    src: url('GetFaceFit-Display.woff2') format('woff2'),
+        url('GetFaceFit-Display.woff') format('woff'),
+        url('GetFaceFit-Display.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* GetFaceFit Text */
+@font-face {
+    font-family: 'GetFaceFit Text';
+    src: url('GetFaceFit-Text.woff2') format('woff2'),
+        url('GetFaceFit-Text.woff') format('woff'),
+        url('GetFaceFit-Text.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
