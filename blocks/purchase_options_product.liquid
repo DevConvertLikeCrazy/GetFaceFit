@@ -1,3 +1,103 @@
+{%- style -%}
+  .purchase-type__title{
+    color: {{ block.settings.title_cl }};
+    font-size: {{ block.settings.title_fs }}px;
+  }
+
+  .purchase-type__tab span{
+    color: {{ block.settings.tabs_cl }};
+    font-size: {{ block.settings.tabs_fs }}px;
+  }
+
+  .purchase-type__tab.active span{
+    color: {{ block.settings.tabs_cl_ac }};
+  }
+
+  .purchase-type__tab span strong{
+    color: {{ block.settings.badge_cl }};
+    background: {{ block.settings.badge_bg }};
+    font-size: {{ block.settings.badge_fs }}px;
+  }
+
+  .purchase-schedule__title{
+    color: {{ block.settings.content_cl }};
+    font-size: {{ block.settings.content_fs }}px;
+  }
+
+  .tier-title{
+    color: {{ block.settings.tab_title_cl }};
+    font-size: {{ block.settings.tab_title_fs }}px;
+  }
+
+  .tier-text{
+    color: {{ block.settings.tab_text_cl }};
+    font-size: {{ block.settings.tab_text_fs }}px;
+  }
+
+  .tier-text em{
+    color: {{ block.settings.tab_text_cl }};
+    font-size: {{ block.settings.tab_text_small_fs }}px;
+  }
+
+  .tier-badge{
+    color: {{ block.settings.tab_badge_cl }};
+    background: {{ block.settings.tab_badge_bg }};
+    font-size: {{ block.settings.tab_badge_fs }}px;
+  }
+
+  .tier-price{
+    color: {{ block.settings.tab_price_cl }};
+    font-size: {{ block.settings.tab_price_fs }}px;
+  }
+
+  .tier-compare{
+    color: {{ block.settings.tab_price_compare_cl }};
+    font-size: {{ block.settings.tab_price_compare_fs }}px;
+  }
+
+  @media (max-width: 990px){
+    .purchase-type__title{
+      font-size: {{ block.settings.title_fs_mob }}px;
+    }
+
+    .purchase-type__tab span{
+      font-size: {{ block.settings.tabs_fs_mob }}px;
+    }
+
+    .purchase-type__tab span strong{
+      font-size: {{ block.settings.badge_fs_mob }}px;
+    }
+
+    .purchase-schedule__title{
+      font-size: {{ block.settings.content_fs_mob }}px;
+    }
+
+    .tier-title{
+      font-size: {{ block.settings.tab_title_fs_mob }}px;
+    }
+
+    .tier-text{
+      font-size: {{ block.settings.tab_text_fs_mob }}px;
+    }
+
+    .tier-text em{
+      font-size: {{ block.settings.tab_text_small_fs_mob }}px;
+    }
+
+    .tier-badge{
+      font-size: {{ block.settings.tab_badge_fs_mob }}px;
+    }
+
+    .tier-price{
+      font-size: {{ block.settings.tab_price_fs_mob }}px;
+    }
+
+    .tier-compare{
+      font-size: {{ block.settings.tab_price_compare_fs_mob }}px;
+    }
+  }
+{%- endstyle -%}
+
 <div class="purchase-type">
   <h4 class="purchase-type__title">{{ block.settings.block_title }}</h4>
 
@@ -315,6 +415,33 @@
       "label": "Block title",
       "default": "Purchase Type"
     },
+   
+    {
+      "type": "color",
+      "id": "title_cl",
+      "label": "Block title color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font-size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "title_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font-size mobile",
+      "default": 20
+    },
     {
       "type": "richtext",
       "id": "subs_title",
@@ -327,6 +454,73 @@
       "label": "Buy once tab title",
       "default": "<p>Buy Once</p>"
     },
+
+    {
+      "type": "color",
+      "id": "tabs_cl",
+      "label": "Tabs color",
+      "default": "#00000099"
+    },
+    {
+      "type": "color",
+      "id": "tabs_cl_ac",
+      "label": "Tabs color active",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "tabs_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs font-size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "tabs_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs font-size mobile",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "badge_cl",
+      "label": "Tabs badge color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Tabs badge background",
+      "default": "#0064E6"
+    },
+
+    {
+      "type": "range",
+      "id": "badge_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs badge font-size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "badge_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs badge font-size mobile",
+      "default": 16
+    },
+
     {
       "type": "text",
       "id": "subscribe_title",
@@ -339,11 +533,199 @@
       "label": "Buy once title",
       "default": "Choose Quantity"
     },
+
+    {
+      "type": "color",
+      "id": "content_cl",
+      "label": "Tabs content color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "content_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs content font-size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "content_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Tabs content font-size mobile",
+      "default": 20
+    },
     {
       "type": "text",
       "id": "save_text",
       "label": "[Save text]",
       "default": "Save"
+    },
+    {
+      "type": "header",
+      "content": "Subscription and one-time purchase styles"
+    },
+    {
+      "type": "color",
+      "id": "tab_title_cl",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "tab_title_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font-size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "tab_title_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font-size mobile",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "tab_badge_cl",
+      "label": "Badge color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "tab_badge_bg",
+      "label": "Badge background",
+      "default": "#0064E6"
+    },
+    {
+      "type": "range",
+      "id": "tab_badge_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge font-size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "tab_badge_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge font-size mobile",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "tab_price_cl",
+      "label": "Price color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "tab_price_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Price font-size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "tab_price_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Price font-size mobile",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "tab_price_compare_cl",
+      "label": "Compare price color",
+      "default": "#00000080"
+    },
+    {
+      "type": "range",
+      "id": "tab_price_compare_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Compare price font-size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "tab_price_compare_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Compare price font-size mobile",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "tab_text_cl",
+      "label": "Text color",
+      "default": "#00000080"
+    },
+
+    {
+      "type": "range",
+      "id": "tab_text_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Text font-size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "tab_text_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Text font-size mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "tab_text_small_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Text small font-size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "tab_text_small_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Text small font-size mobile",
+      "default": 13
     },
   ],
   "blocks": [

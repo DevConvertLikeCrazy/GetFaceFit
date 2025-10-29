@@ -208,3 +208,9 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (max-width: 990px) {
+	.purchase-type__tabs{
+		margin-bottom: 26px;
+	}
+}
