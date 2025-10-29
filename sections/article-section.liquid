@@ -1,0 +1,307 @@
+<style>
+
+    .article-section,
+    .article-section__container--block{
+        max-width: {{ section.settings.max_width }}px;
+        padding: 64px 20px;
+        margin: 0 auto;
+    }
+
+    .article-section h1{
+        color: {{ section.settings.h1_cl }};
+        font-size: {{ section.settings.h1_fs }}px;
+    }
+
+    .article-section h2{
+        color: {{ section.settings.h2_cl }};
+        font-size: {{ section.settings.h2_fs }}px;
+    }
+
+    .article-section h3{
+        color: {{ section.settings.h3_cl }};
+        font-size: {{ section.settings.h3_fs }}px;
+    }
+
+    .article-section h4{
+        color: {{ section.settings.h4_cl }};
+        font-size: {{ section.settings.h4_fs }}px;
+    }
+
+    .article-section h5{
+        color: {{ section.settings.h5_cl }};
+        font-size: {{ section.settings.h5_fs }}px;
+    }
+
+    .article-section h6{
+        color: {{ section.settings.h6_cl }};
+        font-size: {{ section.settings.h6_fs }}px;
+    }
+
+    .article-section p{
+        color: {{ section.settings.p_cl }};
+        font-size: {{ section.settings.p_fs }}px;
+    }
+
+    .article-section__container{
+        background: {{ section.settings.bg }};
+    }
+
+    @media (max-width: 990px) {
+        .article-section h1{
+            font-size: {{ section.settings.h1_fs_mob }}px;
+        }
+
+        .article-section h2{
+            font-size: {{ section.settings.h2_fs_mob }}px;
+        }
+
+        .article-section h3{
+            font-size: {{ section.settings.h3_fs_mob }}px;
+        }
+
+        .article-section h4{
+            font-size: {{ section.settings.h4_fs_mob }}px;
+        }
+
+        .article-section h5{
+            font-size: {{ section.settings.h5_fs_mob }}px;
+        }
+
+        .article-section h6{
+            font-size: {{ section.settings.h6_fs_mob }}px;
+        }
+
+        .article-section p{
+            font-size: {{ section.settings.p_fs_mob }}px;
+        }
+
+        .article-section,
+        .article-section__container--block{
+            padding: 32px 20px;
+        }
+    }
+</style>
+
+<article class="article-section">
+    <div class="article-section__wrapper">
+        {{ article.content }}
+        <div></div>
+    </div>
+</article>
+
+
+{% schema %}
+  {
+    "name": "Artile page",
+    "settings": [
+        {
+            "type": "number",
+            "id": "max_width",
+            "label": "Container max width",
+            "default": 1000
+        },
+        {
+            "type": "color",
+            "id": "h1_cl",
+            "label": "H1 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h1_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H1 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h1_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H2 font-size mobile",
+            "default": 20
+        },
+        {
+            "type": "color",
+            "id": "h2_cl",
+            "label": "H2 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h2_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H2 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h2_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H3 font-size mobile",
+            "default": 20
+        },
+
+        {
+            "type": "color",
+            "id": "h3_cl",
+            "label": "H1 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h3_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H3 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h3_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H3 font-size mobile",
+            "default": 20
+        },
+
+        {
+            "type": "color",
+            "id": "h4_cl",
+            "label": "H4 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h4_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H4 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h4_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H4 font-size mobile",
+            "default": 20
+        },
+
+        {
+            "type": "color",
+            "id": "h5_cl",
+            "label": "H1 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h5_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H5 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h5_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H5 font-size mobile",
+            "default": 20
+        },
+
+        {
+            "type": "color",
+            "id": "h6_cl",
+            "label": "H6 color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "h6_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H6 font-size",
+            "default": 32
+        },
+        {
+            "type": "range",
+            "id": "h6_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "H6 font-size mobile",
+            "default": 20
+        },
+
+        {
+            "type": "color",
+            "id": "p_cl",
+            "label": "P color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "p_fs",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "P font-size",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "p_fs_mob",
+            "min": 8,
+            "max": 44,
+            "step": 1,
+            "unit": "px",
+            "label": "P font-size mobile",
+            "default": 16
+        },
+        {
+            "type": "header",
+            "content": "Bunner styles"
+        },
+        {
+            "type": "color",
+            "id": "bg",
+            "label": "Background",
+            "default": "#FAF9F8"
+        },
+    ],
+    "presets": [
+      {
+        "name": "Artile page"
+      }
+    ]
+  }
+{% endschema %}

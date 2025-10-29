@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section": {
       "type": "main-blog-post",
@@ -22,7 +23,9 @@
             "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
+            "font_weight": 500,
             "font_size": "",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -30,6 +33,7 @@
             "color": "",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -54,11 +58,10 @@
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "image",
-          "name": "Featured image",
+          "type": "_blog-post-featured-image",
           "static": true,
           "settings": {
-            "image_ratio": "landscape",
+            "image_ratio": "adapt",
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -82,6 +85,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -89,9 +93,38 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "article_section_K9pxfJ": {
+      "type": "article-section",
+      "name": "Artile page",
+      "settings": {
+        "max_width": 1000,
+        "h1_cl": "#000000",
+        "h1_fs": 32,
+        "h1_fs_mob": 24,
+        "h2_cl": "#000000",
+        "h2_fs": 32,
+        "h2_fs_mob": 24,
+        "h3_cl": "#000000",
+        "h3_fs": 32,
+        "h3_fs_mob": 24,
+        "h4_cl": "#000000",
+        "h4_fs": 32,
+        "h4_fs_mob": 24,
+        "h5_cl": "#000000",
+        "h5_fs": 32,
+        "h5_fs_mob": 24,
+        "h6_cl": "#000000",
+        "h6_fs": 32,
+        "h6_fs_mob": 24,
+        "p_cl": "#434343",
+        "p_fs": 16,
+        "p_fs_mob": 14
+      }
     }
   },
   "order": [
-    "section"
+    "section",
+    "article_section_K9pxfJ"
   ]
 }
