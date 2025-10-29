@@ -12,7 +12,7 @@
     "main": {
       "type": "product-information",
       "blocks": {
-        "okendo_star_rating_CyXH9h": {
+        "okendo_star_rating_FdfkPK": {
           "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": "{{product}}"
@@ -300,7 +300,7 @@
         }
       },
       "block_order": [
-        "okendo_star_rating_CyXH9h"
+        "okendo_star_rating_FdfkPK"
       ],
       "settings": {
         "content_width": "content-center-aligned",
