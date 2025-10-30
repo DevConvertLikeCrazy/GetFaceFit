@@ -78,6 +78,7 @@
       "blocks": {
         "blog_source_MFzw9T": {
           "type": "blog_source",
+          "disabled": true,
           "settings": {
             "blog": "education-science-1",
             "tab_label": ""
@@ -85,6 +86,7 @@
         },
         "blog_source_qeHHJt": {
           "type": "blog_source",
+          "disabled": true,
           "settings": {
             "blog": "education-science",
             "tab_label": ""
@@ -92,6 +94,7 @@
         },
         "blog_source_eFdadV": {
           "type": "blog_source",
+          "disabled": true,
           "settings": {
             "blog": "wellness-lifestyle",
             "tab_label": ""
@@ -147,7 +150,9 @@
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
+            "font_weight": 500,
             "font_size": "1rem",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -155,6 +160,7 @@
             "color": "var(--color-foreground-heading)",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
