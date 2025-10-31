@@ -21,7 +21,13 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-        }).then((res) => {
+        }).then((res) => res.json()).then((updatedData) => {
+            document.dispatchEvent(new CustomEvent('cart:refresh', { 
+                bubbles: true, 
+                detail: { 
+                    cart: updatedData 
+                } 
+            }))
             const element = document.querySelector("a[href='/cart']");
             const buttonInCartDrawer = document.querySelector('cart-drawer-component button');
             buttonInCartDrawer?.click()
