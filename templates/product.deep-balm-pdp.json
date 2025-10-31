@@ -613,9 +613,14 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    }
+    },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "settings": {}
+    },
   },
   "order": [
-    "main"
+    "main",
+    "hue-mini-review-module"
   ]
 }
