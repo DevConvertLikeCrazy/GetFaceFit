@@ -17,7 +17,8 @@
         }).then((res) => res.json())
         .then((res) => {
             const element = document.querySelector("a[href='/cart']");
-            element.click();
+            const buttonInCartDrawer = document.querySelector('cart-drawer-component button');
+            buttonInCartDrawer?.click()
             {% comment %} const cartCounts = document.querySelectorAll('.cart-count')
             const newQuantity = res?.quantity
             if(cartCounts?.length && newQuantity) {
