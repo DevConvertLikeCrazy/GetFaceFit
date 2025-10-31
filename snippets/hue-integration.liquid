@@ -1,0 +1,28 @@
+<script src="https://app.poweredbyhue.app/js/integration.js" defer></script>
+<script>
+    document.addEventListener('hue-add-to-cart', (event) => {
+        const { detail } = event
+        const { variantId } = detail
+        console.log('variantId', variantId)
+
+        fetch(`${window.origin}/cart/add.js`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                id: variantId,
+                quantity: 1
+            })
+        }).then((res) => res.json())
+        .then((res) => {
+            const cartCounts = document.querySelectorAll('.cart-count')
+            const newQuantity = res?.quantity
+            if(cartCounts?.length && newQuantity) {
+                cartCounts.forEach((cartCount) => {
+                    cartCount.innerHTML = `(${newQuantity})`
+                })
+            }
+        })
+    })
+</script>
