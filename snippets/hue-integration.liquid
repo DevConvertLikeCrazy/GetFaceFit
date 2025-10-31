@@ -16,13 +16,15 @@
             })
         }).then((res) => res.json())
         .then((res) => {
-            const cartCounts = document.querySelectorAll('.cart-count')
+            const element = document.querySelector("a[href='/cart']");
+            element.click();
+            {% comment %} const cartCounts = document.querySelectorAll('.cart-count')
             const newQuantity = res?.quantity
             if(cartCounts?.length && newQuantity) {
                 cartCounts.forEach((cartCount) => {
                     cartCount.innerHTML = `(${newQuantity})`
                 })
-            }
+            } {% endcomment %}
         })
     })
 </script>
