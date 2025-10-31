@@ -1,0 +1,23 @@
+{% render 'hue-integration' %}
+
+<style>
+    #hue-mini-review-module {
+        width: 100%;
+        margin-bottom: 50px;
+
+      @media screen and (max-width: 568px) {
+         margin-bottom: 20px;
+      }
+    }
+</style>
+
+<div id="hue-mini-review-module"></div>
+
+{% schema %}
+  {
+    "name": "hue-mini-review-section",
+    "tag": "section",
+    "class": "slider-items-section",
+    "settings": [],
+  }
+{% endschema %}
