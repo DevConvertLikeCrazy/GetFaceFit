@@ -302,10 +302,44 @@
               "type": "purchase_options_product",
               "name": "Purchase Option",
               "settings": {
+                "block_title": "Purchase Type",
+                "title_cl": "#000000",
+                "title_fs": 22,
+                "title_fs_mob": 20,
                 "subs_title": "<p>Subscribe & <strong>Save up to 20% off</strong></p>",
                 "one_title": "<p>Buy Once</p>",
+                "tabs_cl": "#00000099",
+                "tabs_cl_ac": "#000000",
+                "tabs_fs": 18,
+                "tabs_fs_mob": 16,
+                "badge_cl": "#ffffff",
+                "badge_bg": "#0064e6",
+                "badge_fs": 18,
+                "badge_fs_mob": 16,
                 "subscribe_title": "Schedule",
-                "choose_quantity": "Choose Quantity"
+                "choose_quantity": "Choose Quantity",
+                "content_cl": "#000000",
+                "content_fs": 22,
+                "content_fs_mob": 20,
+                "save_text": "Save",
+                "tab_title_cl": "#000000",
+                "tab_title_fs": 16,
+                "tab_title_fs_mob": 15,
+                "tab_badge_cl": "#ffffff",
+                "tab_badge_bg": "#0064e6",
+                "tab_badge_fs": 16,
+                "tab_badge_fs_mob": 15,
+                "tab_price_cl": "#000000",
+                "tab_price_fs": 15,
+                "tab_price_fs_mob": 15,
+                "tab_price_compare_cl": "#00000080",
+                "tab_price_compare_fs": 14,
+                "tab_price_compare_fs_mob": 14,
+                "tab_text_cl": "#00000080",
+                "tab_text_fs": 15,
+                "tab_text_fs_mob": 14,
+                "tab_text_small_fs": 13,
+                "tab_text_small_fs_mob": 13
               },
               "blocks": {}
             },
@@ -588,6 +622,12 @@
                 "accordion_row_BNDAf9",
                 "accordion_row_ExLhhf"
               ]
+            },
+            "videowise_video_commerce_videowise_page_widgets_jXYrAh": {
+              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+              "settings": {
+                "videowise_embed": ""
+              }
             }
           },
           "block_order": [
@@ -598,7 +638,8 @@
             "recharge_subscriptions_subscription_widget_v2_REKHGJ",
             "purchase_options_product_gXDtU7",
             "buy_buttons_eYQEYi",
-            "accordion_btPhx3"
+            "accordion_btPhx3",
+            "videowise_video_commerce_videowise_page_widgets_jXYrAh"
           ]
         }
       },
