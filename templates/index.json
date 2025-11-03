@@ -95,13 +95,13 @@
         "padding_top_mob": 60,
         "padding_bottom_mob": 60,
         "blog_cl": "#00000080",
-        "blog_fs": 15,
+        "blog_fs": 16,
         "blog_fs_mob": 14,
         "blog_title_cl": "#434343",
-        "blog_title_fs": 16,
+        "blog_title_fs": 20,
         "blog_title_fs_mob": 18,
         "blog_btn_cl": "#000000",
-        "blog_btn_fs": 16,
+        "blog_btn_fs": 18,
         "blog_btn_fs_mob": 16,
         "btn_underline": true
       }
