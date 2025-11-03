@@ -430,7 +430,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Why You’ll Love It?",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
@@ -451,7 +451,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "1rem",
+                        "font_size_mobile": "0.875rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
