@@ -4,7 +4,6 @@ document.addEventListener('hue-add-to-cart', async (event) => {
   const { variantId } = event.detail;
 
   try {
-    // Додаємо товар у кошик
     const res = await fetch(`${window.Shopify.routes.root}cart/add.js`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -13,21 +12,24 @@ document.addEventListener('hue-add-to-cart', async (event) => {
 
     const addedItem = await res.json();
 
-    // Тригеримо офіційну подію Shopify для оновлення UI
-    document.documentElement.dispatchEvent(new CustomEvent('cart:updated', {
-      bubbles: true,
-      detail: { cartData: addedItem }
-    }));
+    const cartRes = await fetch(`${window.Shopify.routes.root}cart.js`);
+    const cartData = await cartRes.json();
 
-    // Викликаємо офіційну подію для перезавантаження Drawer'а
-    if (window.CartDrawer) {
-      window.CartDrawer.renderContents(); // новий метод у Horizon/Dawn
-    } else {
-      // Альтернатива — відкрити Drawer вручну
-      const cartToggle = document.querySelector('cart-drawer, cart-drawer-component, cart-drawer-toggle');
-      cartToggle?.open?.();
-    }
+    document.dispatchEvent(
+      new CustomEvent('cart:add', {
+        bubbles: true,
+        detail: { data: { itemCount: cartData.item_count } },
+      })
+    );
 
+    document.dispatchEvent(
+      new CustomEvent('theme:cart:update', {
+        bubbles: true,
+        detail: { data: { itemCount: cartData.item_count, source: 'product-form-component' } },
+      })
+    );
+
+    console.log('HUE add-to-cart → updated cart', cartData);
   } catch (error) {
     console.error('Error adding to cart:', error);
   }
