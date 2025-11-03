@@ -1,37 +1,35 @@
 <script src="https://app.poweredbyhue.app/js/integration.js" defer></script>
 <script>
-    document.addEventListener('hue-add-to-cart', (event) => {
-        const { detail } = event
-        const { variantId } = detail
-        console.log('variantId', variantId)
+document.addEventListener('hue-add-to-cart', async (event) => {
+  const { variantId } = event.detail;
 
-        fetch(`${window.origin}/cart/add.js`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-                id: variantId,
-                quantity: 1
-            })
-        }).then((res) => res.json())
-        .then((res) => {
-        fetch(`${window.origin}/cart.js`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        }).then((res) => res.json()).then((updatedData) => {
-            document.dispatchEvent(new CustomEvent('cart:refresh', { 
-                bubbles: true, 
-                detail: { 
-                    cart: updatedData 
-                } 
-            }))
-            // opens drawer
-            const buttonInCartDrawer = document.querySelector('cart-drawer-component button');
-            buttonInCartDrawer?.click()
-        })
-        })
-    })
+  try {
+    // Додаємо товар у кошик
+    const res = await fetch(`${window.Shopify.routes.root}cart/add.js`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 }),
+    });
+
+    const addedItem = await res.json();
+
+    // Тригеримо офіційну подію Shopify для оновлення UI
+    document.documentElement.dispatchEvent(new CustomEvent('cart:updated', {
+      bubbles: true,
+      detail: { cartData: addedItem }
+    }));
+
+    // Викликаємо офіційну подію для перезавантаження Drawer'а
+    if (window.CartDrawer) {
+      window.CartDrawer.renderContents(); // новий метод у Horizon/Dawn
+    } else {
+      // Альтернатива — відкрити Drawer вручну
+      const cartToggle = document.querySelector('cart-drawer, cart-drawer-component, cart-drawer-toggle');
+      cartToggle?.open?.();
+    }
+
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+  }
+});
 </script>
