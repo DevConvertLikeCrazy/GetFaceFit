@@ -17,8 +17,8 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "<strong>Free Shipping</strong> on Subscriptions →",
-            "link": "",
+            "text": "<strong>Up to 20% off & free gifts on subscriptions</strong>",
+            "link": "shopify://products/deep-balm",
             "font": "var(--font-subheading--family)",
             "font_size": "1rem",
             "weight": "",
@@ -286,7 +286,7 @@
         "logo": "shopify://shop_images/GFF_LOGO_BLACK.png",
         "logo_width": 120,
         "logo_height": 25,
-        "logo_width_mob": 96,
+        "logo_width_mob": 100,
         "logo_height_mob": 20,
         "pt": 16,
         "pb": 16,
