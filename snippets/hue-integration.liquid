@@ -16,22 +16,23 @@ document.addEventListener('hue-add-to-cart', async (event) => {
     const cartData = await cartRes.json();
 
     document.dispatchEvent(
-      new CustomEvent('cart:add', {
+      new CustomEvent('cart:update', {
         bubbles: true,
-        detail: { data: { itemCount: cartData.item_count } },
+        detail: {
+          resource: cartData,
+          data: {
+            itemCount: cartData.item_count,
+            source: 'product-form-component',
+            variantId: variantId
+          }
+        }
       })
     );
 
-    document.dispatchEvent(
-      new CustomEvent('theme:cart:update', {
-        bubbles: true,
-        detail: { data: { itemCount: cartData.item_count, source: 'product-form-component' } },
-      })
-    );
+    console.log('✅ HUE → cart:update triggered', cartData);
 
-    console.log('HUE add-to-cart → updated cart', cartData);
   } catch (error) {
-    console.error('Error adding to cart:', error);
+    console.error('❌ Error adding to cart:', error);
   }
 });
 </script>
