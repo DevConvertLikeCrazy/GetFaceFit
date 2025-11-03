@@ -75,37 +75,6 @@
     },
     "clc_journal_hp_9jHJqX": {
       "type": "clc-journal-hp",
-      "blocks": {
-        "blog_source_MFzw9T": {
-          "type": "blog_source",
-          "disabled": true,
-          "settings": {
-            "blog": "education-science-1",
-            "tab_label": ""
-          }
-        },
-        "blog_source_qeHHJt": {
-          "type": "blog_source",
-          "disabled": true,
-          "settings": {
-            "blog": "education-science",
-            "tab_label": ""
-          }
-        },
-        "blog_source_eFdadV": {
-          "type": "blog_source",
-          "disabled": true,
-          "settings": {
-            "blog": "wellness-lifestyle",
-            "tab_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "blog_source_MFzw9T",
-        "blog_source_qeHHJt",
-        "blog_source_eFdadV"
-      ],
       "name": "clc-journal-hp",
       "settings": {
         "blog": "news",
@@ -115,7 +84,7 @@
         "title_fs_mob": 24,
         "text_alignment": "left",
         "cta_label": "GO TO JOURNAL",
-        "cta_url": "",
+        "cta_url": "shopify://blogs/news",
         "btn_cl": "#000000",
         "btn_fs": 16,
         "btn_fs_mob": 16,
