@@ -213,7 +213,7 @@
                 "img": "shopify://shop_images/Frame_125.jpg",
                 "video_url": "",
                 "background": "#fafafa",
-                "subtitle": "<p>FREE Video Tutorial With Any New Subscription</p>",
+                "subtitle": "<p>FREE With Any New Subscription</p>",
                 "subtitle_color": "#434343",
                 "subtitle_font": "var(--font-body--family)",
                 "subtitle_line_height": "normal",
