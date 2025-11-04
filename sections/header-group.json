@@ -17,8 +17,8 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "<strong>Free Shipping</strong> on Subscriptions →",
-            "link": "",
+            "text": "<strong>Up to 20% off & free gifts on subscriptions</strong>",
+            "link": "shopify://products/deep-balm",
             "font": "var(--font-subheading--family)",
             "font_size": "1rem",
             "weight": "",
