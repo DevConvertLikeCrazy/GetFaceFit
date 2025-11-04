@@ -304,7 +304,7 @@
               "settings": {
                 "block_title": "Purchase Type",
                 "title_cl": "#000000",
-                "title_fs": 22,
+                "title_fs": 8,
                 "title_fs_mob": 20,
                 "subs_title": "<p>Subscribe & <strong>Save up to 20%</strong></p>",
                 "one_title": "<p>Buy Once</p>",
@@ -431,7 +431,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Why You’ll Love It?",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
