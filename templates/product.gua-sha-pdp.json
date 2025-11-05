@@ -445,6 +445,7 @@
                 },
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Clinical Results",
                     "open_by_default": false,
