@@ -174,7 +174,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>The Head in the Clouds Gua Sha works beyond the surface, releasing fascia tension, boosting micro-circulation, and stimulating lymphatic flow. It helps tone, lift, and define the head naturally.</p>",
+                    "text": "<p>The <strong>Deep Balm</strong> nourishes and strengthens the skin, while the <strong>Gua Sha</strong> lifts and tones from the root. Together they support healthy fascia, boost circulation, and build lasting firmness for smoother, more defined skin</p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
@@ -306,7 +306,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Why You’ll Love It?",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
