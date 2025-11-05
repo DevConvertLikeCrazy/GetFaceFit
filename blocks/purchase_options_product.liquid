@@ -118,7 +118,10 @@
 <div class="purchase-schedule subscription-schedule active">
   <h4 class="purchase-schedule__title">{{ block.settings.subscribe_title }}</h4>
   <ul class="subscription-options__list list-unstyled">
+    {% assign total = group.selling_plans.size %}
     {% for group in product.selling_plan_groups %}
+
+      {% assign is_last = forloop.last %}
       {% for plan in group.selling_plans %}
         {% assign plan_name = plan.name | downcase %}
 
@@ -164,6 +167,7 @@
               data-quantity="1"
               data-price="{{ discounted_price }}"
               data-base-price="{{ base_price }}"
+              {% if is_last %}checked{% endif %}
             >
 
             {% if months > 1 %}
@@ -196,7 +200,7 @@
               <div class="tier-right">
 
                 <div class="tier-prices">
-                  <span class="tier-price">{{ discounted_price | money }}</span>
+                  <span class="tier-price">{{ discounted_price | money }}/month</span>
                   <span class="tier-compare">{{ base_price | money }}</span>
                 </div>
 

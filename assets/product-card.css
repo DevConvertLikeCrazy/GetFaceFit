@@ -15,7 +15,7 @@
 }
 
 .section-products__rating {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
 }
 
@@ -51,14 +51,14 @@
 }
 
 .section-products__description {
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
     font-weight: 400;
     font-size: 15px;
-    line-height: 1;
+    line-height: 1.2;
     letter-spacing: 0px;
     vertical-align: middle;
     margin-bottom: 26px;

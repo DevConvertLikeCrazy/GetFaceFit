@@ -1,0 +1,38 @@
+<script src="https://app.poweredbyhue.app/js/integration.js" defer></script>
+<script>
+document.addEventListener('hue-add-to-cart', async (event) => {
+  const { variantId } = event.detail;
+
+  try {
+    const res = await fetch(`${window.Shopify.routes.root}cart/add.js`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 }),
+    });
+
+    const addedItem = await res.json();
+
+    const cartRes = await fetch(`${window.Shopify.routes.root}cart.js`);
+    const cartData = await cartRes.json();
+
+    document.dispatchEvent(
+      new CustomEvent('cart:update', {
+        bubbles: true,
+        detail: {
+          resource: cartData,
+          data: {
+            itemCount: cartData.item_count,
+            source: 'product-form-component',
+            variantId: variantId
+          }
+        }
+      })
+    );
+
+    console.log('✅ HUE → cart:update triggered', cartData);
+
+  } catch (error) {
+    console.error('❌ Error adding to cart:', error);
+  }
+});
+</script>

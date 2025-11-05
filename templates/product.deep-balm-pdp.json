@@ -174,7 +174,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>{{ closest.product.description }}</p>",
+                    "text": "<p>The Deep Balm works beneath the skin surface - rebuilding structure, restoring elasticity and volume for lifted, sculpted and glowing skin without painful needles, fillers, or filters.</p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
@@ -213,7 +213,7 @@
                 "img": "shopify://shop_images/Frame_125.jpg",
                 "video_url": "",
                 "background": "#fafafa",
-                "subtitle": "<p>Free tutorial with any new subscription</p>",
+                "subtitle": "<p>FREE With Any New Subscription</p>",
                 "subtitle_color": "#434343",
                 "subtitle_font": "var(--font-body--family)",
                 "subtitle_line_height": "normal",
@@ -221,7 +221,7 @@
                 "subtitle_weight": "400",
                 "subtitle_size": "15px",
                 "mob_subtitle_size": "0.75rem",
-                "title": "<p>Debloat Your Face Lymphatic Drainage Routine</p>",
+                "title": "<p>5-Minute Facial Massage for Debloat & De-Puff</p>",
                 "title_color": "#000000",
                 "title_font": "var(--font-accent--family)",
                 "title_line_height": "normal",
@@ -229,7 +229,7 @@
                 "title_weight": "500",
                 "title_size": "1rem",
                 "mob_title_size": "15px",
-                "text": "<p>Learn the best hand techniques for facial massage</p>",
+                "text": "<p>Subscribe now and receive a free step-by-step tutorial on Olivia’s signature lymphatic drainage massage</p>",
                 "text_color": "#434343",
                 "text_font": "var(--font-body--family)",
                 "text_line_height": "normal",
@@ -250,7 +250,7 @@
                 "img": "shopify://shop_images/Frame_125_1.jpg",
                 "video_url": "",
                 "background": "#fafafa",
-                "subtitle": "<p>Free with 3 months subscription</p>",
+                "subtitle": "<p>FREE With New 3-month Subscriptions</p>",
                 "subtitle_color": "#434343",
                 "subtitle_font": "var(--font-body--family)",
                 "subtitle_line_height": "normal",
@@ -258,7 +258,7 @@
                 "subtitle_weight": "400",
                 "subtitle_size": "15px",
                 "mob_subtitle_size": "0.75rem",
-                "title": "<p>Head in the Clouds Scalp Gua Sha</p>",
+                "title": "<p>Head in the Clouds Gua Sha</p>",
                 "title_color": "#000000",
                 "title_font": "var(--font-accent--family)",
                 "title_line_height": "normal",
@@ -266,7 +266,7 @@
                 "title_weight": "500",
                 "title_size": "1rem",
                 "mob_title_size": "15px",
-                "text": "<p>A hand-crafted sculpting tool that supports lymphatic flow and fascia release.</p>",
+                "text": "<p>Receive a free handcrafted tool that relieves tension, boosts circulation, and supports fascia release</p>",
                 "text_color": "#434343",
                 "text_font": "var(--font-body--family)",
                 "text_line_height": "normal",
@@ -431,7 +431,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Why You’ll Love It?",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
@@ -654,9 +654,14 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "hue-mini-review-module"
   ]
 }

@@ -95,7 +95,7 @@
                     {%- assign product = block.settings.product -%}
 
                     {%- if product != blank -%}
-                        {%- render 'product-card-new', product: product -%}
+                        {%- render 'product-card-new', product: product, block: block -%}
                     {%- endif -%}
                 {%- endif -%}
             {%- endfor -%}

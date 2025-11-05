@@ -314,6 +314,10 @@
         "padding-block-end": 0
       }
     },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "settings": {}
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
