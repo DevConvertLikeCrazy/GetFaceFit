@@ -399,7 +399,7 @@
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Ingredients",
+                    "heading": "What’s Made Of?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -413,7 +413,7 @@
                     "text_e3Qhgm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Each Gua Sha is hand-crafted from ethically sourced ox horn, a fascia-friendly material revered for its smooth glide, natural antibacterial properties, and static-free texture. Sustainably made, biodegradable, and designed to last, every piece is unique in tone and grain, honoring traditional craftsmanship with a modern purpose.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
