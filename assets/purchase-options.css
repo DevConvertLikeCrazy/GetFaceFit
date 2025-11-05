@@ -156,6 +156,11 @@
 	color: #00000080;
 }
 
+.subscription-options__list{
+	flex-direction: column-reverse;
+	display: flex;
+}
+
 .purchase-schedule {
 	display: none;
 }
