@@ -352,7 +352,7 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How To Apply?",
+                    "heading": "How to use?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -366,7 +366,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<ol><li><strong>Start:</strong> Lightly oil the scalp or hairline for smoother glide.</li><li><strong>Massage:</strong> Glide the tool upward from the nape to the top of the head.</li><li><strong>Target:</strong> Work around temples, behind ears, and along the neck to encourage flow.</li><li><strong>Relieve:</strong> Move slowly to release tension and awaken fascia.</li><li><strong>End:</strong> Finish with deep breaths and gentle pressure over the crown.</li></ol><p>Use daily to release stress, energize the scalp, and visibly lift facial contours.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
