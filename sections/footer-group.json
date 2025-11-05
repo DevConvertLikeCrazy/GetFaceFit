@@ -403,7 +403,7 @@
         "percent_width": 50,
         "custom_mobile_size": false,
         "unit_mobile": "percent",
-        "percent_width_mobile": 100,
+        "percent_width_mobile": 50,
         "pixel_height_mobile": 120,
         "section_width": "page-width",
         "alignment_horizontal": "center",

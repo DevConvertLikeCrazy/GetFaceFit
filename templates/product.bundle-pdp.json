@@ -24,24 +24,24 @@
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "thumbnails",
             "thumbnail_position": "bottom",
-            "aspect_ratio": "adapt",
-            "constrain_to_viewport": true,
+            "aspect_ratio": "1/1",
+            "constrain_to_viewport": false,
             "media_fit": "cover",
             "media_radius": 0,
             "extend_media": false,
             "zoom": false,
             "video_loop": false,
-            "hide_variants": true,
+            "hide_variants": false,
             "video_url": "https://cdn.shopify.com/videos/c/o/v/b6964d1c32c44d39a198a8b3e8b995d8.mp4",
             "video_width": 100,
             "mob_video_width": 100,
-            "button_icon": "shopify://shop_images/Vector.svg",
+            "button_icon": "shopify://shop_images/Vector_1.svg",
             "icon_width": 10,
             "mob_icon_width": 10,
             "button_text": "See it in Action",
             "button_font_size": "0.875rem",
             "button_mob_font_size": "0.875rem",
-            "button_color": "#000000",
+            "button_color": "#ffffff",
             "padding-block-start": 0,
             "padding-block-end": 23,
             "padding-inline-start": 0,
@@ -148,6 +148,7 @@
                 },
                 "price_tVjtKg": {
                   "type": "price",
+                  "disabled": true,
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
@@ -173,7 +174,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>The Deep Balm works beneath the skin surface - rebuilding structure, restoring elasticity and volume for lifted, sculpted and glowing skin without painful needles, fillers, or filters.</p>",
+                    "text": "<p>The Head in the Clouds Gua Sha works beyond the surface, releasing fascia tension, boosting micro-circulation, and stimulating lymphatic flow. It helps tone, lift, and define the head naturally.</p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
@@ -204,80 +205,6 @@
                 "product_description_Kajeei"
               ]
             },
-            "product_gift_yChNcD": {
-              "type": "product-gift",
-              "name": "Gift card",
-              "settings": {
-                "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125.jpg",
-                "video_url": "",
-                "background": "#fafafa",
-                "subtitle": "<p>FREE With Any New Subscription</p>",
-                "subtitle_color": "#434343",
-                "subtitle_font": "var(--font-body--family)",
-                "subtitle_line_height": "normal",
-                "subtitle_letter_spacing": "normal",
-                "subtitle_weight": "400",
-                "subtitle_size": "15px",
-                "mob_subtitle_size": "0.75rem",
-                "title": "<p>5-Minute Facial Massage for Debloat & De-Puff</p>",
-                "title_color": "#000000",
-                "title_font": "var(--font-accent--family)",
-                "title_line_height": "normal",
-                "title_letter_spacing": "normal",
-                "title_weight": "500",
-                "title_size": "1rem",
-                "mob_title_size": "15px",
-                "text": "<p>Subscribe now and receive a free step-by-step tutorial on Olivia’s signature lymphatic drainage massage</p>",
-                "text_color": "#434343",
-                "text_font": "var(--font-body--family)",
-                "text_line_height": "normal",
-                "text_letter_spacing": "normal",
-                "text_weight": "300",
-                "text_size": "0.875rem",
-                "mob_text_size": "0.75rem",
-                "top": 16,
-                "bottom": 0
-              },
-              "blocks": {}
-            },
-            "product_gift_B9WeYt": {
-              "type": "product-gift",
-              "name": "Gift card",
-              "settings": {
-                "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125_1.jpg",
-                "video_url": "",
-                "background": "#fafafa",
-                "subtitle": "<p>FREE With New 3-month Subscriptions</p>",
-                "subtitle_color": "#434343",
-                "subtitle_font": "var(--font-body--family)",
-                "subtitle_line_height": "normal",
-                "subtitle_letter_spacing": "normal",
-                "subtitle_weight": "400",
-                "subtitle_size": "15px",
-                "mob_subtitle_size": "0.75rem",
-                "title": "<p>Head in the Clouds Gua Sha</p>",
-                "title_color": "#000000",
-                "title_font": "var(--font-accent--family)",
-                "title_line_height": "normal",
-                "title_letter_spacing": "normal",
-                "title_weight": "500",
-                "title_size": "1rem",
-                "mob_title_size": "15px",
-                "text": "<p>Receive a free handcrafted tool that relieves tension, boosts circulation, and supports fascia release</p>",
-                "text_color": "#434343",
-                "text_font": "var(--font-body--family)",
-                "text_line_height": "normal",
-                "text_letter_spacing": "normal",
-                "text_weight": "300",
-                "text_size": "0.875rem",
-                "mob_text_size": "0.75rem",
-                "top": 0,
-                "bottom": 16
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "disabled": true,
@@ -289,56 +216,6 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "recharge_subscriptions_subscription_widget_v2_REKHGJ": {
-              "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
-              "disabled": true,
-              "settings": {}
-            },
-            "purchase_options_product_gXDtU7": {
-              "type": "purchase_options_product",
-              "name": "Purchase Option",
-              "settings": {
-                "block_title": "Purchase Type:",
-                "title_cl": "#000000",
-                "title_fs": 22,
-                "title_fs_mob": 20,
-                "subs_title": "<p>Subscribe & <strong>Save up to 20%</strong></p>",
-                "one_title": "<p>Buy Once</p>",
-                "tabs_cl": "#00000099",
-                "tabs_cl_ac": "#000000",
-                "tabs_fs": 18,
-                "tabs_fs_mob": 16,
-                "badge_cl": "#ffffff",
-                "badge_bg": "#0064e6",
-                "badge_fs": 18,
-                "badge_fs_mob": 16,
-                "subscribe_title": "Schedule",
-                "choose_quantity": "Choose Quantity",
-                "content_cl": "#000000",
-                "content_fs": 22,
-                "content_fs_mob": 20,
-                "save_text": "Save",
-                "tab_title_cl": "#000000",
-                "tab_title_fs": 16,
-                "tab_title_fs_mob": 15,
-                "tab_badge_cl": "#ffffff",
-                "tab_badge_bg": "#0064e6",
-                "tab_badge_fs": 16,
-                "tab_badge_fs_mob": 15,
-                "tab_price_cl": "#000000",
-                "tab_price_fs": 15,
-                "tab_price_fs_mob": 15,
-                "tab_price_compare_cl": "#00000080",
-                "tab_price_compare_fs": 14,
-                "tab_price_compare_fs_mob": 14,
-                "tab_text_cl": "#00000080",
-                "tab_text_fs": 15,
-                "tab_text_fs_mob": 14,
-                "tab_text_small_fs": 13,
-                "tab_text_small_fs_mob": 13
               },
               "blocks": {}
             },
@@ -356,17 +233,16 @@
               "blocks": {
                 "quantity": {
                   "type": "quantity",
-                  "disabled": true,
                   "static": true,
                   "settings": {
-                    "background_color": "#969ea9",
+                    "background_color": "#f4f4f4",
                     "number_color": "#000000",
                     "signs_color": "#626262",
                     "corner_radius": 0,
-                    "quantity_size": "1rem",
+                    "quantity_size": "22px",
                     "mob_quantity_size": "1rem",
                     "quantity_font": "var(--font-body--family)",
-                    "quantity_weight": "400"
+                    "quantity_weight": "700"
                   },
                   "blocks": {}
                 },
@@ -430,7 +306,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Why You’ll Love It?",
-                    "open_by_default": false,
+                    "open_by_default": true,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
@@ -451,7 +327,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "0.875rem",
+                        "font_size_mobile": "1rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -621,24 +497,13 @@
                 "accordion_row_BNDAf9",
                 "accordion_row_ExLhhf"
               ]
-            },
-            "videowise_video_commerce_videowise_page_widgets_jXYrAh": {
-              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-              "settings": {
-                "videowise_embed": ""
-              }
             }
           },
           "block_order": [
             "group_icgrde",
-            "product_gift_yChNcD",
-            "product_gift_B9WeYt",
             "variant_picker_R3rGDr",
-            "recharge_subscriptions_subscription_widget_v2_REKHGJ",
-            "purchase_options_product_gXDtU7",
             "buy_buttons_eYQEYi",
-            "accordion_btPhx3",
-            "videowise_video_commerce_videowise_page_widgets_jXYrAh"
+            "accordion_btPhx3"
           ]
         }
       },
@@ -653,14 +518,9 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "settings": {}
     }
   },
   "order": [
-    "main",
-    "hue-mini-review-module"
+    "main"
   ]
 }
