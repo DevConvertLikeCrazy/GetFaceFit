@@ -398,6 +398,7 @@
                 },
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Ingredients",
                     "open_by_default": false,
