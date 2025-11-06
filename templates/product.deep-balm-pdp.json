@@ -450,7 +450,7 @@
                     "text_QYzrHk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "<p>This isn’t another moisturizer or balm — it’s deep fascia therapy for your skin.</p><ul><li>Rebuilds skin from within by activating fascia for a visible lift</li><li>Melts on like silk, calming skin and leaving a natural finish</li><li>Powered by bakuchiol and ceramides to repair the skin barrier</li><li>Designed by facial expert Olivia Szmidt and 600+ professionals</li><li>Vegan, clean, and free from fillers, silicones, and synthetic fragrances</li></ul><p>Results that lasts longer than a treatment,  that’s what Deep Balm was made for</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -497,7 +497,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p><strong>Warm Up:</strong> Melt a small amount between your palms to release tension.<br/><strong>Activate Fascia:</strong> Press gently across cheeks, jawline, and forehead.<br/><strong>Sculpt:</strong> Using your Gua Sha or fingertips, glide upward from chin to temples in long, slow strokes.<br/><strong>Lift & Define:</strong> Focus around jaw and cheekbones to support fascia and elasticity.<br/><strong>Finish:</strong> Smooth any remaining balm over neck and décolleté for radiant skin.<br/><br/>Use daily for 5 minutes to reset skin tone, release puffiness, and lift naturally</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -544,7 +544,7 @@
                     "text_e3Qhgm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Every ingredient in Deep Balm is chosen to rebuild your skin, not just hydrate it. Think of it as nutrition for your fascia, barrier and glow</p><ul><li><strong>Bakuchiol:</strong> Retinol-like results without irritation or peeling</li><li><strong>Ceramides:</strong> Repairs and protects the skin barrier from dehydration</li><li><strong>Vitamin E:</strong> Neutralizes free radicals to preserve firmness</li><li><strong>Safflower Oil:</strong> Hydrates deeply while calming irritation</li><li><strong>Antioxidant Blend:</strong> Brightens complexion and reduces damage</li></ul><p><strong>Full Ingredients:</strong> ARGANIA SPINOSA KERNEL OIL, ORYZA SATIVA (RICE) BRAN WAX, VITIS VINIFERA (GRAPE), SEED OIL, ROSA CANINA FRUIT OIL, CARTHAMUS TINCTORIUS (SAFFLOWER) SEED OIL, PUNICA GRANATUM SEED OIL, TRIHEPTANOIN, ISOAMYL LAURATE, CETEARYL ALCOHOL, BAKUCHIOL, PASSIFLORA EDULIS SEED OIL, TOCOPHEROL, HELIANTHUS ANNUUS<br/>(SUNFLOWER) SEED OIL, CERAMIDE NP, FRAGRANCE, LIMONENE, LINALOOL, BENZYL, BENZOATE, GERANIOL, CITRAL, FARNESOL, BENZYL SALICYLATE</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -577,7 +577,7 @@
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Clinical Results",
+                    "heading": "Consumer Results",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -591,7 +591,7 @@
                     "text_EKQ9BB": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>After 4 weeks of use, Deep Balm delivers visible and real improvements.</p><ul><li>97% agreed their skin felt instantly nourished, comforted, and soft</li><li>95% noticed their skin looked healthier, smoother, and more radiant</li><li>93% agreed it reduced dryness and strengthened the skin barrier</li><li>91% said their skin appeared plump, hydrated, and glowy for hours.*</li></ul><p>Result: Lifted, sculpted, glowing skin, naturally<br/></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
