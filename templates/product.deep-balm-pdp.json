@@ -121,7 +121,7 @@
                 "okendo_star_rating_8ezPMb": {
                   "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
                   "settings": {
-                    "product": "{{closest.product}}"
+                    "product": "deep-balm"
                   }
                 },
                 "product_title_eYVzTU": {
@@ -154,6 +154,7 @@
                 },
                 "price_tVjtKg": {
                   "type": "price",
+                  "disabled": true,
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
@@ -163,7 +164,7 @@
                     "alignment": "left",
                     "font": "var(--font-accent--family)",
                     "font_size": "1.125rem",
-                    "mob_font_size": "1rem",
+                    "mob_font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -216,7 +217,7 @@
               "name": "Gift card",
               "settings": {
                 "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125.jpg",
+                "img": "shopify://shop_images/Image_6_1.jpg",
                 "video_url": "",
                 "background": "#fafafa",
                 "subtitle": "<p>FREE With Any New Subscription</p>",
@@ -253,7 +254,7 @@
               "name": "Gift card",
               "settings": {
                 "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125_1.jpg",
+                "img": "shopify://shop_images/Image_7_1.jpg",
                 "video_url": "",
                 "background": "#fafafa",
                 "subtitle": "<p>FREE With New 3-month Subscriptions</p>",
@@ -661,13 +662,13 @@
         "padding-block-end": 0
       }
     },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "settings": {}
-    },
     "replo_pdp_deep_balm_btf_stack_ihNeiQ": {
       "type": "replo-pdp-deep-balm-btf-stack",
       "name": "PDP Deep Balm — BTF Stack",
+      "settings": {}
+    },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
       "settings": {}
     }
   },
