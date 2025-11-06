@@ -523,10 +523,16 @@
     "hue-mini-review-module": {
       "type": "hue-mini-review-section",
       "settings": {}
+    },
+    "replo_pdp_gua_sha_sections_nVagNj": {
+      "type": "replo-pdp-gua-sha-sections",
+      "name": "PDP Gua Sha — Sections",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "hue-mini-review-module"
+    "hue-mini-review-module",
+    "replo_pdp_gua_sha_sections_nVagNj"
   ]
 }
