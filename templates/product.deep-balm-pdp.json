@@ -664,10 +664,16 @@
     "hue-mini-review-module": {
       "type": "hue-mini-review-section",
       "settings": {}
+    },
+    "replo_pdp_deep_balm_btf_stack_ihNeiQ": {
+      "type": "replo-pdp-deep-balm-btf-stack",
+      "name": "PDP Deep Balm — BTF Stack",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "replo_pdp_deep_balm_btf_stack_ihNeiQ",
     "hue-mini-review-module"
   ]
 }
