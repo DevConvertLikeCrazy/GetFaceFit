@@ -44,6 +44,7 @@
       ],
       "name": "clc-collection-block",
       "settings": {
+        "show_ratings": true,
         "title": "<p>Shop Get Face Fit Essentials</p>",
         "title_cl": "#000000",
         "title_fs": 32,
@@ -71,6 +72,11 @@
         "pt_mob": 20,
         "pb_mob": 20
       }
+    },
+    "replo_homepage_cJcCHA": {
+      "type": "replo-homepage",
+      "name": "Homepage",
+      "settings": {}
     },
     "clc_journal_hp_9jHJqX": {
       "type": "clc-journal-hp",
@@ -388,6 +394,7 @@
   },
   "order": [
     "section_products_D9emG9",
+    "replo_homepage_cJcCHA",
     "clc_journal_hp_9jHJqX",
     "hero_jVaWmY",
     "product_list_fa6P9H"
