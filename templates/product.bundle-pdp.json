@@ -447,7 +447,7 @@
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Clinical Results",
+                    "heading": "Consumer Results",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -519,9 +519,15 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "replo_pdp_complete_scul_mp4tXe": {
+      "type": "replo-pdp-complete-scul",
+      "name": "PDP - Complete Scul",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "replo_pdp_complete_scul_mp4tXe"
   ]
 }
