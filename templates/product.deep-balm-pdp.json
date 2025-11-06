@@ -577,7 +577,7 @@
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Clinical Results",
+                    "heading": "Consumer Results",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -591,7 +591,7 @@
                     "text_EKQ9BB": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>After 4 weeks of use, Deep Balm delivers visible and real improvements.</p><ul><li>97% agreed their skin felt instantly nourished, comforted, and soft</li><li>95% noticed their skin looked healthier, smoother, and more radiant</li><li>93% agreed it reduced dryness and strengthened the skin barrier</li><li>91% said their skin appeared plump, hydrated, and glowy for hours.*</li></ul><p>Result: Lifted, sculpted, glowing skin, naturally<br/></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
