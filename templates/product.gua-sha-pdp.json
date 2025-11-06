@@ -311,7 +311,7 @@
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": true,
+                    "disable_top_divider": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -319,7 +319,7 @@
                     "text_QYzrHk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "<p>Your scalp carries more tension than you think — this tool helps release it.</p><ul><li>Releases deep fascia tension for a lifted, sculpted look</li><li>Stimulates lymphatic flow to debloat and awaken glow</li><li>Boosts circulation to support healthy hair and radiant skin</li><li>Hand-crafted from smooth ox horn for a grounding glide</li><li>Designed by facial expert Olivia Szmidt for at-home results</li></ul><p>The Gua Sha that turns scalp care into self-care, one glide at a time.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -352,13 +352,13 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How To Apply?",
+                    "heading": "How to use?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
                     "mob_padding_top": 16,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": false,
+                    "disable_top_divider": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -366,7 +366,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<ol><li><strong>Start:</strong> Lightly oil the scalp or hairline for smoother glide.</li><li><strong>Massage:</strong> Glide the tool upward from the nape to the top of the head.</li><li><strong>Target:</strong> Work around temples, behind ears, and along the neck to encourage flow.</li><li><strong>Relieve:</strong> Move slowly to release tension and awaken fascia.</li><li><strong>End:</strong> Finish with deep breaths and gentle pressure over the crown.</li></ol><p>Use daily to release stress, energize the scalp, and visibly lift facial contours.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -399,7 +399,7 @@
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Ingredients",
+                    "heading": "What’s Made Of?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -413,7 +413,7 @@
                     "text_e3Qhgm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Each Gua Sha is hand-crafted from ethically sourced ox horn, a fascia-friendly material revered for its smooth glide, natural antibacterial properties, and static-free texture. Sustainably made, biodegradable, and designed to last, every piece is unique in tone and grain, honoring traditional craftsmanship with a modern purpose.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -445,6 +445,7 @@
                 },
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Clinical Results",
                     "open_by_default": false,

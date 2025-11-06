@@ -174,7 +174,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>The Head in the Clouds Gua Sha works beyond the surface, releasing fascia tension, boosting micro-circulation, and stimulating lymphatic flow. It helps tone, lift, and define the head naturally.</p>",
+                    "text": "<p>The <strong>Deep Balm</strong> nourishes and strengthens the skin, while the <strong>Gua Sha</strong> lifts and tones from the root. Together they support healthy fascia, boost circulation, and build lasting firmness for smoother, more defined skin</p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
@@ -305,8 +305,8 @@
                 "accordion_row_CrCPxQ": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Why You’ll Love It?",
-                    "open_by_default": true,
+                    "heading": "What’s Included?",
+                    "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
@@ -319,7 +319,7 @@
                     "text_QYzrHk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "<p>Your complete ritual for natural lift and lasting skin health.</p><ul><li><strong>Deep Balm (50ml):</strong> A rich, clinically backed balm that melts into skin for deep nourishment and long-term resilience.</li><li><strong>Gua Sha Tool:</strong> A sculpting tool designed to stimulate fascia, enhance circulation, and boost the lifting benefits of the Deep Balm.</li></ul><p>Together, they create the foundation for your daily lifting ritual</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -352,7 +352,7 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How To Apply?",
+                    "heading": "How to Use?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -366,7 +366,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>Your daily 3-minute ritual for visible lift and calm.</p><ol><li><strong>Warm</strong> a pearl-sized amount of Deep Balm between your fingertips.</li><li><strong>Apply</strong> evenly to clean skin, focusing on areas of dryness or tension.</li><li><strong>Glide</strong> the Gua Sha along the jawline, cheeks, and forehead using gentle upward motions.</li><li><strong>Repeat daily</strong> for healthy fascia, improved tone, and lasting firmness.</li></ol><p><em>For best results, use morning or evening - consistency is key</em></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -398,6 +398,7 @@
                 },
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Ingredients",
                     "open_by_default": false,
@@ -460,7 +461,7 @@
                     "text_EKQ9BB": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>These claims are based on independent 4-week consumer studies showing visible improvements in hydration, firmness, and overall skin vitality.</p><p><strong>Results after 4 weeks:</strong></p><p>• <strong>97%</strong> said their skin felt nourished, comforted, and soft</p><p>• <strong>95%</strong> noticed smoother texture and more radiant skin</p><p>• <strong>93%</strong> experienced reduced dryness and a stronger, more resilient feel</p><p>• <strong>91%</strong> agreed their skin looked plumper and healthier throughout the day</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
