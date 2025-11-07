@@ -42,6 +42,7 @@
         "product_KchQEj",
         "product_4UUQgj"
       ],
+      "disabled": true,
       "name": "clc-collection-block",
       "settings": {
         "show_ratings": true,
