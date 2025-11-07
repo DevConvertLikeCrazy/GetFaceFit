@@ -74,6 +74,11 @@
   color: {{ block.settings.subtitle_color }};
 }
 
+.product-gift__right--subtitle strong{
+  font-weight: {{ block.settings.subtitle_weight }};
+  color: {{ block.settings.subtitle_color_bold }};
+}
+
 .product-gift--{{ block.id }} .product-gift__right--title {
   margin: 0;
   font-size: {{ block.settings.title_size }};
@@ -323,6 +328,12 @@
       "id": "subtitle_color",
       "label": "Color",
       "default": "#434343"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color_bold",
+      "label": "Bold color",
+      "default": "#0064e6"
     },
     {
       "type": "select",

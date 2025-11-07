@@ -4185,6 +4185,10 @@ accordion-custom {
         block-size var(--animation-speed-slow) var(--animation-easing);
     }
 
+    .details-content ul{
+      padding-left: 15px;
+    }
+
     &:not([open]) {
       &::details-content,
       .details-content {
