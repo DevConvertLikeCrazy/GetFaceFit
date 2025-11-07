@@ -22,7 +22,9 @@
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
+            "font_weight": 500,
             "font_size": "",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -30,6 +32,7 @@
             "color": "",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -48,6 +51,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -55,9 +59,15 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "replo_about_us_yM9K3A": {
+      "type": "replo-about-us",
+      "name": "About Us",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "replo_about_us_yM9K3A"
   ]
 }
