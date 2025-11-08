@@ -102,7 +102,7 @@
       },
       "17151115064775110295": {
         "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "color_brand": "#467C99",
           "contrast_color": "#FFFFFF",
@@ -118,7 +118,7 @@
       },
       "16798170927650018749": {
         "type": "shopify://apps/recharge-subscriptions/blocks/storefront-experiences/371eed76-0b44-4869-9813-730372ea378e",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
