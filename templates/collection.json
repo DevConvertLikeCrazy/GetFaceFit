@@ -272,11 +272,17 @@
         "pt_mob": 32,
         "pb_mob": 32
       }
+    },
+    "replo_clc_coll_bottom_page_YnWXfV": {
+      "type": "replo-clc-coll-bottom-page",
+      "name": "CLC-Coll. - Bottom page",
+      "settings": {}
     }
   },
   "order": [
     "section",
     "main",
-    "collection_page_section_jzYBqh"
+    "collection_page_section_jzYBqh",
+    "replo_clc_coll_bottom_page_YnWXfV"
   ]
 }
