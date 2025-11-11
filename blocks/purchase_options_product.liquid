@@ -118,67 +118,85 @@
 <div class="purchase-schedule subscription-schedule active">
   <h4 class="purchase-schedule__title">{{ block.settings.subscribe_title }}</h4>
   <ul class="subscription-options__list list-unstyled">
-    {% assign total = group.selling_plans.size %}
-    {% for group in product.selling_plan_groups %}
 
+    {%- assign months_words = 'month,months' | split: ',' -%}
+
+    {%- for variant in product.variants -%}
       {% assign is_last = forloop.last %}
-      {% for plan in group.selling_plans %}
-        {% assign plan_name = plan.name | downcase %}
+      {%- assign v_title = variant.title | downcase -%}
 
-        {% assign months = 0 %}
-        {% for opt in plan.options %}
-          {% if opt.name == 'Order Frequency and Unit' %}
-            {% assign raw_value = opt.value | downcase %}
-            {% assign digits = '' %}
-            {% for i in (0..raw_value.size) %}
-              {% assign char = raw_value | slice: i, 1 %}
-              {% if char >= '0' and char <= '9' %}
-                {% assign digits = digits | append: char %}
-              {% endif %}
-            {% endfor %}
-            {% assign months = digits | plus: 0 %}
-          {% endif %}
-        {% endfor %}
+      {%- assign is_sub_variant = false -%}
+      {%- for w in months_words -%}
+        {%- if v_title contains w -%}
+          {%- assign is_sub_variant = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
 
-        {% assign discount_percentage = 0 %}
-        {% for adj in plan.price_adjustments %}
-          {% if adj.value_type == 'percentage' %}
-            {% assign discount_percentage = adj.value %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
+      {%- if is_sub_variant -%}
+        {%- assign digits = '' -%}
+        {%- for i in (0..v_title.size) -%}
+          {%- assign ch = v_title | slice: i, 1 -%}
+          {%- if ch >= '0' and ch <= '9' -%}
+            {%- assign digits = digits | append: ch -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign months_num = digits | plus: 0 -%}
+        {%- if months_num == 0 -%}{%- assign months_num = 1 -%}{%- endif -%}
 
-        {% assign variant = product.selected_or_first_available_variant %}
-        {% assign base_price = variant.price %}
-        {% assign discount_multiplier = 100 | minus: discount_percentage %}
-        {% assign discounted_price = base_price | times: discount_multiplier | divided_by: 100 %}
-        {% assign savings_amount = base_price | minus: discounted_price %}
+        {%- assign matched_plan = nil -%}
+        {%- for spg in product.selling_plan_groups -%}
+          {%- for sp in spg.selling_plans -%}
+            {%- assign plan_name = sp.name | downcase -%}
+            {%- if plan_name contains months_num -%}
+              {%- assign matched_plan = sp -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if matched_plan -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+
+        {%- assign base_price_total = variant.price -%}
+        {%- assign unit_base_price = base_price_total | divided_by: months_num -%}
+
+        {%- assign discount_percentage = 0 -%}
+        {%- if matched_plan and matched_plan.price_adjustments.size > 0 -%}
+          {%- for adj in matched_plan.price_adjustments -%}
+            {%- if adj.value_type == 'percentage' -%}
+              {%- assign discount_percentage = adj.value -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- assign minus_percent = 100 | minus: discount_percentage -%}
+        {%- assign unit_discounted_price = unit_base_price | times: minus_percent | divided_by: 100 -%}
+        {%- assign savings_per_unit = unit_base_price | minus: unit_discounted_price -%}
 
         <li class="subscription-tier">
           <label class="tier-label">
-            <!-- radio input acts like a tab -->
             <input
               type="radio"
               class="tier-input"
               name="subscription_tier"
-              value="{{ plan.id }}"
-              data-selling-plan="{{ plan.id }}"
+              value="{{ matched_plan.id | default: '' }}"
+              data-selling-plan="{{ matched_plan.id | default: '' }}"
               data-variant-id="{{ variant.id }}"
-              data-quantity="1"
-              data-price="{{ discounted_price }}"
-              data-base-price="{{ base_price }}"
+              data-quantity="{{ months_num }}"
+              data-price="{{ unit_discounted_price }}"
+              data-base-price="{{ unit_base_price }}"
+              data-total-discounted="{{ unit_discounted_price | times: months_num }}"
+              data-total-base="{{ unit_base_price | times: months_num }}"
               {% if is_last %}checked{% endif %}
             >
 
-            {% if months > 1 %}
-              {%- assign title = "Every " | append: months | append: ' months' -%}
-            {%- else -%}
-              {%- assign title = "Every " | append: months | append: ' month' -%}
-            {% endif %}
-
-
             <div class="tier-content">
               <div class="tier-left">
+
+                {% if months_num > 1 %}
+                  {%- assign title = "Every " | append: months_num | append: ' months' -%}
+                {%- else -%}
+                  {%- assign title = "Every " | append: months_num | append: ' month' -%}
+                {% endif %}
                 {%- assign no_title = false -%}
 
                 {%- for item in product.metafields.custom.purchase_text.value -%}
@@ -195,20 +213,22 @@
                   <span class="tier-title">{{ title }}</span>
                 {%- endif -%}
 
-                <span class="tier-badge">{{ block.settings.save_text }} {{ savings_amount | money }}</span>
+                {% if savings_per_unit > 0 %}
+                  <span class="tier-badge">{{ block.settings.save_text }} {{ savings_per_unit | money }}</span>
+                {% endif %}
               </div>
               <div class="tier-right">
-
                 <div class="tier-prices">
-                <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings_amount | money }}</span>
-
-                  <span class="tier-price">{{ discounted_price | money }}/month</span>
-                  <span class="tier-compare">{{ base_price | money }}</span>
+                  {% if savings_per_unit > 0 %}
+                    <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings_per_unit | money }}</span>
+                  {% endif %}
+                  <span class="tier-price">{{ unit_discounted_price | money }}</span>
+                  {% if savings_per_unit > 0 %}
+                    <span class="tier-compare">{{ unit_base_price | money }}</span>
+                  {% endif %}
                 </div>
-
               </div>
             </div>
-            
           </label>
 
           {%- for item in product.metafields.custom.purchase_text.value -%}
@@ -216,10 +236,11 @@
               <div class="tier-text">{{ item.text | metafield_tag }}</div>
             {%- endif -%}
           {%- endfor -%}
-
         </li>
-      {% endfor %}
-    {% endfor %}
+
+      {%- endif -%}
+    {%- endfor -%}
+
   </ul>
 </div>
 
@@ -227,55 +248,72 @@
 <div class="purchase-schedule onetime-schedule">
   <h4 class="purchase-schedule__title">{{ block.settings.choose_quantity }}</h4>
   <ul class="onetime-options__list list-unstyled">
-    {% assign variant = product.selected_or_first_available_variant %}
 
-    {% for qty in product.metafields.custom.product_quantity_blocks.value %}
+  {%- assign one_time_variant = nil -%}
+  {%- assign one_time_keywords = 'one-time,1 time,buy once,single' | split: ',' -%}
 
-      {% assign base_price = variant.price %}
-      {% assign total_price = base_price | times: qty.quantiy %}
-      {% assign discount_percent = qty.discount_percentage | default: 0 %}
-      {% assign discount_multiplier = 100 | minus: discount_percent %}
-      {% assign discounted_price = total_price | times: discount_multiplier | divided_by: 100 %}
-      {% assign savings = total_price | minus: discounted_price %}
+  {%- for variant in product.variants -%}
+    {%- assign v_title = variant.title | downcase -%}
+    {%- for word in one_time_keywords -%}
+      {%- if v_title contains word -%}
+        {%- assign one_time_variant = variant -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if one_time_variant -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+
+  {%- if one_time_variant -%}
+    {%- for qty in product.metafields.custom.product_quantity_blocks.value -%}
+      {%- assign base_price = one_time_variant.price -%}
+      {%- assign total_price = base_price | times: qty.quantiy -%}
+      {%- assign discount_percent = qty.discount_percentage | default: 0 -%}
+      {%- assign discount_multiplier = 100 | minus: discount_percent -%}
+      {%- assign discounted_price = total_price | times: discount_multiplier | divided_by: 100 -%}
+      {%- assign savings = total_price | minus: discounted_price -%}
 
       <li class="onetime-tier">
         <label class="tier-label">
-          <!-- radio input acts like tab -->
           <input
             type="radio"
             class="tier-input"
             name="onetime_tier"
             data-selling-plan=""
-            data-variant-id="{{ variant.id }}"
+            data-variant-id="{{ one_time_variant.id }}"
             data-quantity="{{ qty.quantiy }}"
             data-price="{{ discounted_price }}"
             data-base-price="{{ total_price }}"
+            {% if forloop.first %}checked{% endif %}
           >
 
           <div class="tier-content">
             <div class="tier-left">
               <span class="tier-title">{{ qty.title | metafield_tag }}</span>
-                {% if savings > 0 %}
-                  <span class="tier-badge">{{ block.settings.save_text }} {{ savings | money }}</span>
-                {% endif %}
+              {% if savings > 0 %}
+                <span class="tier-badge">{{ block.settings.save_text }} {{ savings | money }}</span>
+              {% endif %}
             </div>
+
             <div class="tier-right">
-
               <div class="tier-prices">
-                <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings | money }}</span>
-
+                {% if savings > 0 %}
+                  <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings | money }}</span>
+                {% endif %}
                 <span class="tier-price">{{ discounted_price | money }}</span>
                 {% if savings > 0 %}
                   <span class="tier-compare">{{ total_price | money }}</span>
                 {% endif %}
               </div>
-            
             </div>
           </div>
         </label>
       </li>
-    {% endfor %}
-  </ul>
+    {%- endfor -%}
+  {%- else -%}
+    <li><p>No one-time variant found (expected name includes “1 time”, “buy once”, etc.)</p></li>
+  {%- endif -%}
+
+</ul>
 </div>
 
 
@@ -328,11 +366,15 @@
 
     // Update price in the UI
     const updatePriceDisplay = (input) => {
-      if (!input || !priceEl) return;
+    if (!input || !priceEl) return;
 
       const priceCents = parseFloat(input.dataset.price || 0);
       const baseCents = parseFloat(input.dataset.basePrice || 0);
-      const compareVisible = compareEl && baseCents > priceCents;
+
+      const totalDiscounted = parseFloat(input.dataset.totalDiscounted || priceCents);
+      const totalBase = parseFloat(input.dataset.totalBase || baseCents);
+
+      const compareVisible = totalBase > totalDiscounted;
 
       priceEl.textContent = formatMoney(priceCents);
       if (compareEl) {
@@ -340,12 +382,12 @@
         compareEl.style.display = compareVisible ? 'inline' : 'none';
       }
 
-      // Optional: also update button text price (if price appears inside)
       const addToCartPrice = document.querySelector('.add-to-cart-text__content .price');
       const addToCartCompare = document.querySelector('.add-to-cart-text__content .compare-at-price');
-      if (addToCartPrice) addToCartPrice.textContent = formatMoney(priceCents);
+
+      if (addToCartPrice) addToCartPrice.textContent = formatMoney(totalDiscounted);
       if (addToCartCompare) {
-        addToCartCompare.textContent = formatMoney(baseCents);
+        addToCartCompare.textContent = formatMoney(totalBase);
         addToCartCompare.style.display = compareVisible ? 'inline' : 'none';
       }
     };
@@ -354,7 +396,9 @@
       if (!input) return;
       sellingPlanInput.value = input.dataset.sellingPlan || '';
       variantInput.value = input.dataset.variantId || variantInput.value;
-      qtyInput.value = input.dataset.quantity || 1;
+      
+      qtyInput.value = 1;
+      
       highlightSelection('.subscription-tier', input);
       updatePriceDisplay(input);
     };
