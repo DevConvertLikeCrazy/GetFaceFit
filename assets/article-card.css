@@ -52,7 +52,7 @@
 
 @media (max-width: 1200px) {
     .article-card {
-        max-width: calc(100% / 3 - 10px);
+        max-width: calc(100% / 3 - 11px);
     }
 }
 
