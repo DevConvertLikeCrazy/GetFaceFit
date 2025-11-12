@@ -21,6 +21,13 @@
         {%- endif -%}
     }
 
+    {% if section.settings.show_all == true %}
+      .clc-journal-hp__articles-group{
+        flex-wrap: wrap;
+      }
+    {% endif %}
+  
+
     @media (max-width: 990px){
         .{{ section.id }} .clc-journal-hp__header--title{
             font-size: {{ section.settings.title_fs_mob }}px;
@@ -49,7 +56,6 @@
         </div>
       {% endif %}
 
-      <!-- 🟩 Tabs -->
       <div class="clc-journal-hp__tabs">
         <button class="clc-journal-hp__tab active" data-tag="all">All Articles</button>
         {% assign all_tags = '' %}
@@ -68,7 +74,6 @@
         {% endfor %}
       </div>
 
-      <!-- 🟩 Articles wrapper -->
       <div class="clc-journal-hp__articles">
         <div class="clc-journal-hp__articles-group" data-tag="all"></div>
         {% for tag in unique_tags %}
@@ -78,14 +83,12 @@
         {% endfor %}
       </div>
 
-      <!-- 🟩 Hidden storage for all blog articles -->
       <div class="clc-journal-hp__all-articles-storage" style="display:none;">
         {% for article in blog.articles %}
             {% render 'article-card', article: article, blog_title: blog.title %}
         {% endfor %}
       </div>
 
-      <!-- 🟩 CTA -->
       {% if section.settings.cta_label != blank %}
         <div class="clc-journal-hp__cta" style="text-align: {{ section.settings.btn_alignment }};">
           <a href="{{ section.settings.cta_url }}" class="clc-journal-hp__link underline-link">
@@ -99,23 +102,28 @@
     {% endif %}
   </div>
 
-  <!-- 🟩 JS logic -->
   <script>
+
+    {% if section.settings.show_all == true %}
+      const showAll = true;
+    {% else %}
+      const showAll = false;
+    {% endif %}
+
     document.addEventListener('DOMContentLoaded', () => {
       const tabs = document.querySelectorAll('.clc-journal-hp__tab');
       const groups = document.querySelectorAll('.clc-journal-hp__articles-group');
       const allArticles = Array.from(document.querySelectorAll('.clc-journal-hp__all-articles-storage .article-card'));
       const allContainer = document.querySelector('.clc-journal-hp__articles-group[data-tag="all"]');
     
-      // 🔹 1. Сортуємо всі статті за датою (від новіших)
       allArticles.sort((a, b) => b.dataset.date - a.dataset.date);
-    
-      // 🔹 2. Показуємо 3 останні у вкладці "All Articles"
-      allArticles.slice(0, 3).forEach(article => {
+
+      const allLimit = showAll ? allArticles.length : 3;
+
+      allArticles.slice(0, allLimit).forEach(article => {
         allContainer.appendChild(article.cloneNode(true));
       });
     
-      // 🔹 3. Визначаємо унікальні теги (чисті, без пробілів)
       const allTags = [...new Set(allArticles.flatMap(a => {
         return a.dataset.tags
           .split(',')
@@ -123,7 +131,6 @@
           .filter(Boolean);
       }))];
     
-      // 🔹 4. Для кожного тегу створюємо статті у відповідний контейнер
       allTags.forEach(tag => {
         const tagHandle = tag
           .toLowerCase()
@@ -140,12 +147,13 @@
           })
           .sort((a, b) => b.dataset.date - a.dataset.date);
     
-        taggedArticles.slice(0, 3).forEach(article => {
+        const limit = showAll ? taggedArticles.length : 3;
+
+        taggedArticles.slice(0, limit).forEach(article => {
           container.appendChild(article.cloneNode(true));
         });
       });
     
-      // 🔹 5. Перемикаємо вкладки
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
           tabs.forEach(t => t.classList.remove('active'));
@@ -169,6 +177,12 @@
             "type": "blog",
             "id": "blog",
             "label": "Select Blog"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_all",
+          "label": "Show all articles (for blog page)",
+          "default": false
         },
         {
             "type": "text",
