@@ -648,13 +648,8 @@
         "padding-block-end": 0
       }
     },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "settings": {}
-    }
   },
   "order": [
     "main",
-    "hue-mini-review-module"
   ]
 }
