@@ -135,6 +135,7 @@
       "name": "clc-journal-hp",
       "settings": {
         "blog": "news",
+        "show_all": true,
         "heading": "Learn With the Get Face Fit Journal",
         "title_cl": "#000000",
         "title_fs": 32,
