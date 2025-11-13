@@ -126,7 +126,7 @@
           "type": "megamenu",
           "settings": {
             "id": "Shop",
-            "url_1": "",
+            "url_1": "shopify://products/deep-balm",
             "image_1": "shopify://shop_images/Frame_1707480601.jpg",
             "title_1": "The Deep Balm",
             "text_1": "A daily fascia-supporting balm that restores hydration, structure, and natural lift",
