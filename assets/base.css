@@ -4533,3 +4533,7 @@ text-component {
     width: 100%;
   }
 }
+
+.template-product .okeReviews .oke-reviewsTab{
+  display: none !important;
+}

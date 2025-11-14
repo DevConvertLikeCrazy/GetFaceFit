@@ -18,27 +18,23 @@ class AccordionCustom extends HTMLElement {
   get #closeWithEscape()  { return this.dataset.closeWithEscape === 'true'; }
 
   #controller = new AbortController();
-  #groupRoot = null; // ⬅️ де шукати «сусідів»
+  #groupRoot = null;
 
   connectedCallback() {
     const { signal } = this.#controller;
 
-    // ⬇️ межі групи — секція Shopify або найближчий контейнер
     this.#groupRoot =
       this.closest('.shopify-section') ||
       this.closest('[data-accordion-group]') ||
       this.parentElement;
 
     this.#setDefaultOpenState();
-    // ⬇️ якщо відкритий — закрий сусідів
     this.#enforceSingleOpen();
 
-    // події
     this.addEventListener('keydown', this.#handleKeyDown, { signal });
     this.summary.addEventListener('click', this.handleClick, { signal });
     mediaQueryLarge.addEventListener('change', this.#handleMediaQueryChange, { signal });
 
-    // ⬇️ головне: реакція на відкриття/закриття
     this.details.addEventListener('toggle', this.#handleToggle, { signal });
   }
 
@@ -65,7 +61,6 @@ class AccordionCustom extends HTMLElement {
       (!isMobile && this.hasAttribute('open-by-default-on-desktop'));
   }
 
-  // ⬇️ коли цей відкрився — закриваємо інші
   #handleToggle = () => {
     if (this.details.open) this.#closeSiblings();
   };
@@ -75,7 +70,6 @@ class AccordionCustom extends HTMLElement {
     const nodes = this.#groupRoot.querySelectorAll('accordion-custom');
     nodes.forEach((el) => {
       if (el !== this) {
-        // безпечніше напряму до <details>, щоб не залежати від класу
         const d = el.querySelector('details');
         if (d && d.open) d.open = false;
       }

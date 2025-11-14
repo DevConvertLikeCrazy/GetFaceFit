@@ -107,10 +107,13 @@
         </a>
         <div class="header-custom__links">
             <header-actions>
-                {% if shop.customer_accounts_enabled %}
-                    {% render 'account-popover' %}
-                    {% render 'account-drawer' %}
-                {% endif %}
+
+                {%- if section.settings.show_account == true -%}
+                    {% if shop.customer_accounts_enabled %}
+                        {% render 'account-popover' %}
+                        {% render 'account-drawer' %}
+                    {% endif %}
+                {%- endif -%}
             
                 {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
                     {% render 'cart-drawer' %}
@@ -221,6 +224,12 @@
             "unit": "px",
             "label": "Logo heightmobile",
             "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "show_account",
+          "label": "Show account button",
+          "default": true
         },
         {
             "type": "header",
