@@ -32,6 +32,7 @@
   .tier-text{
     color: {{ block.settings.tab_text_cl }};
     font-size: {{ block.settings.tab_text_fs }}px;
+    font-weight: {{ block.settings.tab_text_fw }}; 
   }
 
   .tier-text em{
@@ -78,6 +79,7 @@
 
     .tier-text{
       font-size: {{ block.settings.tab_text_fs_mob }}px;
+      font-weight: {{ block.settings.tab_text_fw_mob }}; 
     }
 
     .tier-text em{
@@ -121,9 +123,20 @@
 
     {%- assign months_words = 'month,months' | split: ',' -%}
 
+    {%- assign one_time_keywords = 'one-time,1 time,buy once,single' | split: ',' -%}
+
+
+
     {%- for variant in product.variants -%}
       {% assign is_last = forloop.last %}
       {%- assign v_title = variant.title | downcase -%}
+
+      {%- for word in one_time_keywords -%}
+        {%- if v_title contains word -%}
+          {%- assign fix_price = variant.price -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
 
       {%- assign is_sub_variant = false -%}
       {%- for w in months_words -%}
@@ -170,7 +183,7 @@
 
         {%- assign minus_percent = 100 | minus: discount_percentage -%}
         {%- assign unit_discounted_price = unit_base_price | times: minus_percent | divided_by: 100 -%}
-        {%- assign savings_per_unit = unit_base_price | minus: unit_discounted_price -%}
+        {%- assign savings_per_unit = unit_base_price | minus: unit_discounted_price | times: months_num -%}
 
         <li class="subscription-tier">
           <label class="tier-label">
@@ -224,7 +237,7 @@
                   {% endif %}
                   <span class="tier-price">{{ unit_discounted_price | money }}</span>
                   {% if savings_per_unit > 0 %}
-                    <span class="tier-compare">{{ unit_base_price | money }}</span>
+                    <span class="tier-compare">{{ fix_price | money }}</span>
                   {% endif %}
                 </div>
               </div>
@@ -749,6 +762,27 @@
       "label": "Text font-size",
       "default": 15
     },
+
+    {
+      "type": "select",
+      "id": "tab_text_fw",
+      "label": "Text font-weight",
+      "options": [
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "400",
+          "label": "Light"
+        },
+      ],
+      "default": "400"
+    },
     {
       "type": "range",
       "id": "tab_text_fs_mob",
@@ -758,6 +792,26 @@
       "unit": "px",
       "label": "Text font-size mobile",
       "default": 14
+    },
+    {
+      "type": "select",
+      "id": "tab_text_fw_mob",
+      "label": "Text font-weight mobile",
+      "options": [
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "400",
+          "label": "Light"
+        },
+      ],
+      "default": "400"
     },
     {
       "type": "range",
