@@ -288,6 +288,7 @@
         "logo_height": 25,
         "logo_width_mob": 100,
         "logo_height_mob": 20,
+        "show_account": false,
         "pt": 16,
         "pb": 16,
         "pt_mob": 14,
