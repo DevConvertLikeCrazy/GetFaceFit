@@ -346,7 +346,9 @@
                 "tab_price_compare_fs_mob": 12,
                 "tab_text_cl": "#00000080",
                 "tab_text_fs": 15,
+                "tab_text_fw": "400",
                 "tab_text_fs_mob": 14,
+                "tab_text_fw_mob": "400",
                 "tab_text_small_fs": 13,
                 "tab_text_small_fs_mob": 13
               },
