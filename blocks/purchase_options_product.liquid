@@ -235,7 +235,7 @@
                   {% if savings_per_unit > 0 %}
                     <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings_per_unit | money }}</span>
                   {% endif %}
-                  <span class="tier-price">{{ unit_discounted_price | money }}</span>
+                  <span class="tier-price">{{ unit_discounted_price | money }} / month</span>
                   {% if savings_per_unit > 0 %}
                     <span class="tier-compare">{{ fix_price | money }}</span>
                   {% endif %}
