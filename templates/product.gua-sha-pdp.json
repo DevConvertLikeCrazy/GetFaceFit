@@ -32,16 +32,16 @@
             "zoom": false,
             "video_loop": false,
             "hide_variants": false,
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/b6964d1c32c44d39a198a8b3e8b995d8.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/0b9bff9a3d2a4263b2b4ed01d2254636.mp4",
             "video_width": 100,
             "mob_video_width": 100,
-            "button_icon": "shopify://shop_images/Vector_1.svg",
+            "button_icon": "shopify://shop_images/Vector.svg",
             "icon_width": 10,
             "mob_icon_width": 10,
             "button_text": "See it in Action",
             "button_font_size": "0.875rem",
             "button_mob_font_size": "0.875rem",
-            "button_color": "#ffffff",
+            "button_color": "#000000",
             "padding-block-start": 0,
             "padding-block-end": 23,
             "padding-inline-start": 0,
@@ -118,6 +118,12 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "okendo_star_rating_VFtcca": {
+                  "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                  "settings": {
+                    "product": "{{closest.product}}"
+                  }
+                },
                 "product_title_eYVzTU": {
                   "type": "product-title",
                   "name": "t:names.title",
@@ -200,6 +206,7 @@
                 }
               },
               "block_order": [
+                "okendo_star_rating_VFtcca",
                 "product_title_eYVzTU",
                 "price_tVjtKg",
                 "product_description_Kajeei"
@@ -352,7 +359,7 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How to use?",
+                    "heading": "How To use?",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,

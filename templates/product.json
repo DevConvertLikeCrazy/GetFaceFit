@@ -14,6 +14,7 @@
       "blocks": {
         "okendo_star_rating_FdfkPK": {
           "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "disabled": true,
           "settings": {
             "product": "{{product}}"
           }
@@ -123,6 +124,12 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "okendo_star_rating_LwVtbx": {
+                  "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                  "settings": {
+                    "product": "{{closest.product}}"
+                  }
+                },
                 "product_title_eYVzTU": {
                   "type": "product-title",
                   "name": "t:names.title",
@@ -177,6 +184,7 @@
                 }
               },
               "block_order": [
+                "okendo_star_rating_LwVtbx",
                 "product_title_eYVzTU",
                 "price_tVjtKg"
               ]
@@ -314,10 +322,6 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "settings": {}
     },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",

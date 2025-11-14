@@ -19,26 +19,34 @@ class AccordionCustom extends HTMLElement {
 
   #controller = new AbortController();
   #groupRoot = null;
+  #isProductAccordion = false;
 
   connectedCallback() {
     const { signal } = this.#controller;
 
     this.#groupRoot =
+      this.closest('.product-information__grid') ||
       this.closest('.shopify-section') ||
       this.closest('[data-accordion-group]') ||
       this.parentElement;
 
+    this.#isProductAccordion = !!this.closest('.product-information__grid');
+
     this.#setDefaultOpenState();
-    this.#enforceSingleOpen();
+
+    if (this.#isProductAccordion) {
+      this.#enforceSingleOpen();
+      this.details.addEventListener('toggle', this.#handleToggle, { signal });
+    }
 
     this.addEventListener('keydown', this.#handleKeyDown, { signal });
     this.summary.addEventListener('click', this.handleClick, { signal });
     mediaQueryLarge.addEventListener('change', this.#handleMediaQueryChange, { signal });
-
-    this.details.addEventListener('toggle', this.#handleToggle, { signal });
   }
 
-  disconnectedCallback() { this.#controller.abort(); }
+  disconnectedCallback() {
+    this.#controller.abort();
+  }
 
   handleClick = (event) => {
     const isMobile = isMobileBreakpoint();
@@ -51,7 +59,7 @@ class AccordionCustom extends HTMLElement {
 
   #handleMediaQueryChange = () => {
     this.#setDefaultOpenState();
-    this.#enforceSingleOpen();
+    if (this.#isProductAccordion) this.#enforceSingleOpen();
   };
 
   #setDefaultOpenState() {
@@ -62,11 +70,11 @@ class AccordionCustom extends HTMLElement {
   }
 
   #handleToggle = () => {
-    if (this.details.open) this.#closeSiblings();
+    if (this.details.open && this.#isProductAccordion) this.#closeSiblings();
   };
 
   #closeSiblings() {
-    if (!this.#groupRoot) return;
+    if (!this.#groupRoot || !this.#isProductAccordion) return;
     const nodes = this.#groupRoot.querySelectorAll('accordion-custom');
     nodes.forEach((el) => {
       if (el !== this) {
@@ -77,7 +85,7 @@ class AccordionCustom extends HTMLElement {
   }
 
   #enforceSingleOpen() {
-    if (this.details.open) this.#closeSiblings();
+    if (this.details.open && this.#isProductAccordion) this.#closeSiblings();
   }
 
   #handleKeyDown(event) {
