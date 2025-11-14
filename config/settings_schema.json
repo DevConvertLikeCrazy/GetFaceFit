@@ -1742,12 +1742,6 @@
         "default": "page"
       },
       {
-        "type": "checkbox",
-        "id": "show_app_cart",
-        "label": "Hide default cart",
-        "default": true
-      },
-      {
         "type": "select",
         "id": "product_title_case",
         "label": "t:settings.product_title_case",
