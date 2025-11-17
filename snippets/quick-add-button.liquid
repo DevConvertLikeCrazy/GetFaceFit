@@ -96,6 +96,7 @@
         value="{% if variant_to_use.quantity_rule.min %}{{ variant_to_use.quantity_rule.min }}{% else %}1{% endif %}"
       >
       {% comment %} If there is one variant option but it's swatches or if it's a single variant product, then use add to cart button {% endcomment %}
+      
       {%- if product.variants.size == 1 or product.options.size == 1 -%}
         {% render 'add-to-cart-button',
           add_to_cart_text: '<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7V6H6V0H7V6H13V7H7V13H6V7H0Z" fill="black"/></svg>',
@@ -104,8 +105,9 @@
           icon_only_on_mobile: true,
           product: product
         %}
-      {%- endif -%}
-      {%- if product.variants.size > 1 -%}
+
+      {%- else -%}
+          
         <button
           class="button quick-add__button quick-add__button--choose"
           {% comment %} type="submit" is the default, so we explicitly set it to "button" to prevent the ProductFormComponent.handleSubmit from being triggered {% endcomment %}
