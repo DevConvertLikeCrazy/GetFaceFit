@@ -4539,6 +4539,6 @@ text-component {
   }
 }
 
-.template-product .okeReviews .oke-reviewsTab{
+.okeReviews .oke-reviewsTab{
   display: none !important;
 }
