@@ -24,7 +24,6 @@
           "type": "product",
           "settings": {
             "product": "deep-balm",
-            "image": "shopify://shop_images/Frame_1707480601_7.jpg",
             "rating": "shopify://shop_images/Container_1.png",
             "text": ""
           }
@@ -43,17 +42,19 @@
         "product_KchQEj",
         "product_4UUQgj"
       ],
+      "disabled": true,
       "name": "clc-collection-block",
       "settings": {
+        "show_ratings": true,
         "title": "<p>Shop Get Face Fit Essentials</p>",
         "title_cl": "#000000",
         "title_fs": 32,
-        "title_fs_mob": 24,
+        "title_fs_mob": 26,
         "products_to_show": "3",
         "btn_text": "SHOP NOW",
         "prod_btn_bg": "#0064e6",
         "prod_btn_cl": "#ffffff",
-        "prod_btn_fs": 16,
+        "prod_btn_fs": 18,
         "prod_btn_fs_mob": 16,
         "qa": true,
         "rating_width": 90,
@@ -73,43 +74,21 @@
         "pb_mob": 20
       }
     },
+    "replo_homepage_cJcCHA": {
+      "type": "replo-homepage",
+      "name": "Homepage",
+      "settings": {}
+    },
     "clc_journal_hp_9jHJqX": {
       "type": "clc-journal-hp",
-      "blocks": {
-        "blog_source_MFzw9T": {
-          "type": "blog_source",
-          "settings": {
-            "blog": "education-science-1",
-            "tab_label": ""
-          }
-        },
-        "blog_source_qeHHJt": {
-          "type": "blog_source",
-          "settings": {
-            "blog": "education-science",
-            "tab_label": ""
-          }
-        },
-        "blog_source_eFdadV": {
-          "type": "blog_source",
-          "settings": {
-            "blog": "wellness-lifestyle",
-            "tab_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "blog_source_MFzw9T",
-        "blog_source_qeHHJt",
-        "blog_source_eFdadV"
-      ],
       "name": "clc-journal-hp",
       "settings": {
         "blog": "news",
-        "heading": "Learn With the Get Face Fit Journal",
+        "show_all": false,
+        "heading": "Learn With Get Face Fit",
         "title_cl": "#000000",
         "title_fs": 32,
-        "title_fs_mob": 24,
+        "title_fs_mob": 26,
         "text_alignment": "left",
         "cta_label": "GO TO JOURNAL",
         "cta_url": "shopify://blogs/news",
@@ -120,16 +99,16 @@
         "btn_alignment": "center",
         "padding_top": 60,
         "padding_bottom": 60,
-        "padding_top_mob": 60,
+        "padding_top_mob": 30,
         "padding_bottom_mob": 60,
         "blog_cl": "#00000080",
-        "blog_fs": 15,
-        "blog_fs_mob": 15,
+        "blog_fs": 16,
+        "blog_fs_mob": 14,
         "blog_title_cl": "#434343",
-        "blog_title_fs": 16,
-        "blog_title_fs_mob": 16,
+        "blog_title_fs": 20,
+        "blog_title_fs_mob": 18,
         "blog_btn_cl": "#000000",
-        "blog_btn_fs": 16,
+        "blog_btn_fs": 18,
         "blog_btn_fs_mob": 16,
         "btn_underline": true
       }
@@ -417,6 +396,7 @@
   },
   "order": [
     "section_products_D9emG9",
+    "replo_homepage_cJcCHA",
     "clc_journal_hp_9jHJqX",
     "hero_jVaWmY",
     "product_list_fa6P9H"

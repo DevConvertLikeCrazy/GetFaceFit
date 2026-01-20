@@ -1,3 +1,5 @@
+
+
 {%- doc -%}
   Intended for use in a block similar to the text block.
 
@@ -49,7 +51,7 @@
 %}
 
 {% capture attributes %}
-  class="{{ class }} spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}
+  class="{{ class }} product__title spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}
     {{ text_block_classes }}
   "
 
@@ -69,7 +71,7 @@
     --color: {{ block.settings.text_color }};
     --font-weight: {{ block.settings.font_weight }};
     --font-size: {{ block.settings.font_size }};
-    --font-size-mobile: {{ block.settings.font_size_mobile }};
+    --font-size-mobile: {{ block.settings.mob_font_size }};
   "
 
   {{ block.shopify_attributes }}

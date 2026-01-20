@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "favicon": "shopify://shop_images/GFF_LOGO_BLACK.png",
     "type_body_font": "montserrat_n4",
     "type_subheading_font": "montserrat_n3",
     "type_heading_font": "montserrat_n4",
@@ -53,7 +54,7 @@
     "secondary_button_border_width": 1,
     "button_border_radius_secondary": 14,
     "button_font_weight_secondary": "default",
-    "cart_type": "drawer",
+    "cart_type": "page",
     "cart_price_font": "secondary",
     "auto_open_cart_drawer": true,
     "show_cart_note": false,
@@ -77,6 +78,61 @@
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
+    "blocks": {
+      "733389323033596483": {
+        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      },
+      "7885500093077574326": {
+        "type": "shopify://apps/videowise-video-commerce/blocks/script_embed/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": false,
+        "settings": {}
+      },
+      "10312807297210203588": {
+        "type": "shopify://apps/aftersell-by-rokt/blocks/utm-triggers/509ec35d-0632-4dfc-a105-fa799cd9d149",
+        "disabled": false,
+        "settings": {}
+      },
+      "14952540001915115444": {
+        "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": true,
+        "settings": {
+          "color_brand": "#467C99",
+          "contrast_color": "#FFFFFF",
+          "color_brand_secondary": "#467C99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#FFFFFF",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "16798170927650018749": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/storefront-experiences/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": true,
+        "settings": {}
+      },
+      "7194384644902525832": {
+        "type": "shopify://apps/fokkio-automatic-gift/blocks/widget/866ae171-054c-4fa5-8677-5f391a13902b",
+        "disabled": false,
+        "settings": {}
+      },
+      "18128612654622612671": {
+        "type": "shopify://apps/selecty/blocks/app-embed/a005a4a7-4aa2-4155-9c2b-0ab41acbf99c",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {

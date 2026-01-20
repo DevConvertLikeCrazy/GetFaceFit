@@ -10,11 +10,11 @@
         padding-bottom: {{ section.settings.pb }}px;
     }
 
-    .{{ section.id }} .section-products__rating{
+    /* .{{ section.id }} .section-products__rating{
         width: {{ section.settings.rating_width }}px;
         height: {{ section.settings.rating_height }}px;
         object-fit: contain;
-    }
+    } */
 
     .{{ section.id }} .section-products__item{
         max-width: calc(100% / {{ section.settings.products_to_show }})
@@ -108,6 +108,12 @@
     "name": "clc-collection-block",
     "max_blocks": 4,
     "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_ratings",
+          "label": "Show ratings",
+          "default": true
+        },
         {
             "type": "richtext",
             "id": "title",

@@ -16,7 +16,7 @@
 
 .section-products__rating {
     margin-bottom: 12px;
-    display: block;
+    display: flex;
 }
 
 .section-products__title-price {

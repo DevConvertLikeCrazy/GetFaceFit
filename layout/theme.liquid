@@ -4,6 +4,7 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+{% render 'replo-head' %}
     {%- render 'stylesheets' -%}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,9 +47,10 @@
     {{ content_for_header }}
   </head>
 
-  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+  <body class=" template-{{ template.name }} page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
-    <div id="header-group">
+    
+    <div id="header-group" {% if template.suffix == 'clc-pre-sell' %} style="display: none !important;"{% endif %}>
       {% sections 'header-group' %}
     </div>
 
@@ -70,7 +72,9 @@
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% if template.suffix != 'clc-pre-sell' %}
+      {% sections 'footer-group' %}
+    {% endif %}
 
     {% render 'search-modal' %}
 

@@ -32,16 +32,16 @@
             "zoom": false,
             "video_loop": false,
             "hide_variants": false,
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/b6964d1c32c44d39a198a8b3e8b995d8.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/0b9bff9a3d2a4263b2b4ed01d2254636.mp4",
             "video_width": 100,
             "mob_video_width": 100,
-            "button_icon": "shopify://shop_images/Vector_1.svg",
+            "button_icon": "shopify://shop_images/Vector.svg",
             "icon_width": 10,
             "mob_icon_width": 10,
             "button_text": "See it in Action",
             "button_font_size": "0.875rem",
             "button_mob_font_size": "0.875rem",
-            "button_color": "#ffffff",
+            "button_color": "#000000",
             "padding-block-start": 0,
             "padding-block-end": 23,
             "padding-inline-start": 0,
@@ -118,14 +118,19 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "okendo_star_rating_VFtcca": {
+                  "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                  "settings": {
+                    "product": "head-in-the-clouds-scalp-gua-sha"
+                  }
+                },
                 "product_title_eYVzTU": {
                   "type": "product-title",
                   "name": "t:names.title",
                   "settings": {
-                    "icon": "shopify://shop_images/Container_1.png",
                     "icon_width": 126,
                     "mob_icon_width": 90,
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "custom",
@@ -201,6 +206,7 @@
                 }
               },
               "block_order": [
+                "okendo_star_rating_VFtcca",
                 "product_title_eYVzTU",
                 "price_tVjtKg",
                 "product_description_Kajeei"
@@ -306,13 +312,13 @@
                 "accordion_row_CrCPxQ": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Why You’ll Love It?",
+                    "heading": "Why You’ll Love It",
                     "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": true,
+                    "disable_top_divider": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -320,7 +326,7 @@
                     "text_QYzrHk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "<p>Your scalp carries more tension than you think — this tool helps release it.</p><ul><li>Releases deep fascia tension for a lifted, sculpted look</li><li>Stimulates lymphatic flow to debloat and awaken glow</li><li>Boosts circulation to support healthy hair and radiant skin</li><li>Hand-crafted from smooth ox horn for a grounding glide</li><li>Designed by facial expert Olivia Szmidt for at-home results</li></ul><p>The Gua Sha that turns scalp care into self-care, one glide at a time.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -353,13 +359,13 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How To Apply?",
+                    "heading": "How to use",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
                     "mob_padding_top": 16,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": false,
+                    "disable_top_divider": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -367,7 +373,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<ol><li><strong>Start:</strong> Lightly oil the scalp or hairline for smoother glide.</li><li><strong>Massage:</strong> Glide the tool upward from the nape to the top of the head.</li><li><strong>Target:</strong> Work around temples, behind ears, and along the neck to encourage flow.</li><li><strong>Relieve:</strong> Move slowly to release tension and awaken fascia.</li><li><strong>End:</strong> Finish with deep breaths and gentle pressure over the crown.</li></ol><p>Use daily to release stress, energize the scalp, and visibly lift facial contours.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -400,7 +406,7 @@
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Ingredients",
+                    "heading": "Material & Ingredients",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -414,7 +420,7 @@
                     "text_e3Qhgm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Each Gua Sha is hand-crafted from ethically sourced ox horn, a fascia-friendly material revered for its smooth glide, natural antibacterial properties, and static-free texture. Sustainably made, biodegradable, and designed to last, every piece is unique in tone and grain, honoring traditional craftsmanship with a modern purpose.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -446,6 +452,7 @@
                 },
                 "accordion_row_ExLhhf": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Clinical Results",
                     "open_by_default": false,
@@ -498,13 +505,20 @@
                 "accordion_row_BNDAf9",
                 "accordion_row_ExLhhf"
               ]
+            },
+            "videowise_video_commerce_videowise_page_widgets_8cm9nY": {
+              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+              "settings": {
+                "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f53b989d06549d388de0c\"></div>"
+              }
             }
           },
           "block_order": [
             "group_icgrde",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "accordion_btPhx3"
+            "accordion_btPhx3",
+            "videowise_video_commerce_videowise_page_widgets_8cm9nY"
           ]
         }
       },
@@ -520,8 +534,19 @@
         "padding-block-end": 0
       }
     },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "settings": {}
+    },
+    "replo_pdp_gua_sha_sections_nVagNj": {
+      "type": "replo-pdp-gua-sha-sections",
+      "name": "PDP Gua Sha — Sections",
+      "settings": {}
+    }
   },
   "order": [
     "main",
+    "hue-mini-review-module",
+    "replo_pdp_gua_sha_sections_nVagNj"
   ]
 }

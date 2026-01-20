@@ -22,7 +22,9 @@
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
+            "font_weight": 500,
             "font_size": "",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -30,6 +32,7 @@
             "color": "",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -48,7 +51,9 @@
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-primary--family)",
+            "font_weight": 500,
             "font_size": "",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -56,6 +61,7 @@
             "color": "",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -161,12 +167,15 @@
               "type": "product-title",
               "name": "t:names.product_title",
               "settings": {
+                "icon_width": 126,
+                "mob_icon_width": 126,
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
+                "mob_font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -193,6 +202,7 @@
                 "alignment": "left",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
+                "mob_font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -232,7 +242,8 @@
       "type": "collection-page-section",
       "name": "clc-collection-page",
       "settings": {
-        "collection": "",
+        "collection": "get-face-fit-essentials",
+        "show_ratings": true,
         "title": "<p>Shop Get Face Fit Essentials</p>",
         "title_cl": "#000000",
         "title_fs": 32,
@@ -244,6 +255,7 @@
         "prod_btn_cl": "#ffffff",
         "prod_btn_fs": 16,
         "prod_btn_fs_mob": 16,
+        "qa": true,
         "rating_width": 90,
         "rating_height": 15,
         "prod_title_cl": "#000000",
@@ -252,7 +264,7 @@
         "prod_price_cl": "#000000",
         "prod_price_fs": 16,
         "prod_price_fs_mob": 16,
-        "prod_text_cl": "#43434380",
+        "prod_text_cl": "#000000",
         "prod_text_fs": 15,
         "prod_text_fs_mob": 15,
         "pt": 64,
@@ -260,11 +272,17 @@
         "pt_mob": 32,
         "pb_mob": 32
       }
+    },
+    "replo_clc_coll_bottom_page_YnWXfV": {
+      "type": "replo-clc-coll-bottom-page",
+      "name": "CLC-Coll. - Bottom page",
+      "settings": {}
     }
   },
   "order": [
     "section",
     "main",
-    "collection_page_section_jzYBqh"
+    "collection_page_section_jzYBqh",
+    "replo_clc_coll_bottom_page_YnWXfV"
   ]
 }

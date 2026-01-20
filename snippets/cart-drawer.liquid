@@ -14,6 +14,7 @@
   fetchpriority="low"
 ></script>
 
+
 <cart-drawer-component
   class="cart-drawer"
   {{ block.shopify_attributes }}
@@ -31,10 +32,10 @@
 
   <dialog
     ref="dialog"
-    class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{%endif%}"
+    class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{% endif %}"
     scroll-lock
   >
-    <div class="cart-drawer__inner">
+    <div class="cart-drawer__inner" >
       <cart-items-component
         class="cart-items-component"
         data-section-id="{{ section.id }}"
@@ -110,6 +111,7 @@
   </dialog>
 </cart-drawer-component>
 
+
 {% stylesheet %}
   .cart-items-component {
     width: 100%;
@@ -169,3 +171,4 @@
     z-index: 1;
   }
 {% endstylesheet %}
+

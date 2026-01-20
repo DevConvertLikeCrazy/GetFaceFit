@@ -1508,6 +1508,11 @@ summary .svg-wrapper {
   transition: transform var(--animation-speed) var(--animation-easing);
 }
 
+
+.menu__heading__accordion .svg-wrapper{
+  margin-inline-start: 0;
+}
+
 /* Shared plus/minus icon animations */
 summary .icon-plus :is(.horizontal, .vertical),
 .show-more__button .icon-plus :is(.horizontal, .vertical) {
@@ -4185,6 +4190,10 @@ accordion-custom {
         block-size var(--animation-speed-slow) var(--animation-easing);
     }
 
+    .details-content ul{
+      padding-left: 15px;
+    }
+
     &:not([open]) {
       &::details-content,
       .details-content {
@@ -4528,4 +4537,8 @@ text-component {
     max-width: 100%;
     width: 100%;
   }
+}
+
+.okeReviews .oke-reviewsTab{
+  display: none !important;
 }

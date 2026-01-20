@@ -24,15 +24,15 @@
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "thumbnails",
             "thumbnail_position": "bottom",
-            "aspect_ratio": "1/1",
-            "constrain_to_viewport": false,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
             "media_fit": "cover",
             "media_radius": 0,
             "extend_media": false,
             "zoom": false,
             "video_loop": false,
-            "hide_variants": false,
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/b6964d1c32c44d39a198a8b3e8b995d8.mp4",
+            "hide_variants": true,
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/32c50b680a1347fdb2f47260a8507b54.mp4",
             "video_width": 100,
             "mob_video_width": 100,
             "button_icon": "shopify://shop_images/Vector.svg",
@@ -118,14 +118,19 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "okendo_star_rating_8ezPMb": {
+                  "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                  "settings": {
+                    "product": "deep-balm"
+                  }
+                },
                 "product_title_eYVzTU": {
                   "type": "product-title",
                   "name": "t:names.title",
                   "settings": {
-                    "icon": "shopify://shop_images/Container_1.png",
                     "icon_width": 126,
                     "mob_icon_width": 90,
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "custom",
@@ -149,6 +154,7 @@
                 },
                 "price_tVjtKg": {
                   "type": "price",
+                  "disabled": true,
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
@@ -158,7 +164,7 @@
                     "alignment": "left",
                     "font": "var(--font-accent--family)",
                     "font_size": "1.125rem",
-                    "mob_font_size": "1rem",
+                    "mob_font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -200,6 +206,7 @@
                 }
               },
               "block_order": [
+                "okendo_star_rating_8ezPMb",
                 "product_title_eYVzTU",
                 "price_tVjtKg",
                 "product_description_Kajeei"
@@ -210,11 +217,12 @@
               "name": "Gift card",
               "settings": {
                 "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125.jpg",
+                "img": "shopify://shop_images/Image_6_1.jpg",
                 "video_url": "",
                 "background": "#fafafa",
-                "subtitle": "<p>FREE With Any New Subscription</p>",
+                "subtitle": "<p><strong>FREE</strong> With Any New Subscription</p>",
                 "subtitle_color": "#434343",
+                "subtitle_color_bold": "#0064e6",
                 "subtitle_font": "var(--font-body--family)",
                 "subtitle_line_height": "normal",
                 "subtitle_letter_spacing": "normal",
@@ -247,11 +255,12 @@
               "name": "Gift card",
               "settings": {
                 "aspect_ratio": "1 / 1.2",
-                "img": "shopify://shop_images/Frame_125_1.jpg",
+                "img": "shopify://shop_images/Image_7_1.jpg",
                 "video_url": "",
                 "background": "#fafafa",
-                "subtitle": "<p>FREE With New 3-month Subscriptions</p>",
+                "subtitle": "<p><strong>FREE</strong> With New 3-month Subscriptions</p>",
                 "subtitle_color": "#434343",
+                "subtitle_color_bold": "#0064e6",
                 "subtitle_font": "var(--font-body--family)",
                 "subtitle_line_height": "normal",
                 "subtitle_letter_spacing": "normal",
@@ -302,9 +311,9 @@
               "type": "purchase_options_product",
               "name": "Purchase Option",
               "settings": {
-                "block_title": "Purchase Type",
+                "block_title": "Purchase Type:",
                 "title_cl": "#000000",
-                "title_fs": 8,
+                "title_fs": 22,
                 "title_fs_mob": 20,
                 "subs_title": "<p>Subscribe & <strong>Save up to 20%</strong></p>",
                 "one_title": "<p>Buy Once</p>",
@@ -324,20 +333,22 @@
                 "save_text": "Save",
                 "tab_title_cl": "#000000",
                 "tab_title_fs": 16,
-                "tab_title_fs_mob": 15,
+                "tab_title_fs_mob": 14,
                 "tab_badge_cl": "#ffffff",
                 "tab_badge_bg": "#0064e6",
                 "tab_badge_fs": 16,
                 "tab_badge_fs_mob": 15,
                 "tab_price_cl": "#000000",
                 "tab_price_fs": 15,
-                "tab_price_fs_mob": 15,
+                "tab_price_fs_mob": 12,
                 "tab_price_compare_cl": "#00000080",
                 "tab_price_compare_fs": 14,
-                "tab_price_compare_fs_mob": 14,
+                "tab_price_compare_fs_mob": 12,
                 "tab_text_cl": "#00000080",
                 "tab_text_fs": 15,
+                "tab_text_fw": "400",
                 "tab_text_fs_mob": 14,
+                "tab_text_fw_mob": "400",
                 "tab_text_small_fs": 13,
                 "tab_text_small_fs_mob": 13
               },
@@ -452,7 +463,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "1rem",
+                        "font_size_mobile": "0.875rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -491,7 +502,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p><strong>Warm Up:</strong> Melt a small amount between your palms to release tension.<br/><strong>Activate Fascia:</strong> Press gently across cheeks, jawline, and forehead.<br/><strong>Sculpt:</strong> Using your Gua Sha or fingertips, glide upward from chin to temples in long, slow strokes.<br/><strong>Lift & Define:</strong> Focus around jaw and cheekbones to support fascia and elasticity.<br/><strong>Finish:</strong> Smooth any remaining balm over neck and décolleté for radiant skin.<br/><br/>Use daily for 5 minutes to reset skin tone, release puffiness, and lift naturally.<br/></p>",
+                        "text": "<ul><li><strong>Warm Up:</strong> Melt a small amount between your palms to release tension.</li><li><strong>Activate Fascia:</strong> Press gently across cheeks, jawline, and forehead.</li><li><strong>Sculpt:</strong> Using your Gua Sha or fingertips, glide upward from chin to temples in long, slow strokes.</li><li><strong>Lift & Define:</strong> Focus around jaw and cheekbones to support fascia and elasticity.</li><li><strong>Finish:</strong> Smooth any remaining balm over neck and décolleté for radiant skin.</li></ul><p>Use daily for 5 minutes to reset skin tone, release puffiness, and lift naturally</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -499,7 +510,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "1rem",
+                        "font_size_mobile": "0.875rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -546,7 +557,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "1rem",
+                        "font_size_mobile": "0.875rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -593,7 +604,7 @@
                         "font": "var(--font-body--family)",
                         "font_weight": 500,
                         "font_size": "1rem",
-                        "font_size_mobile": "1rem",
+                        "font_size_mobile": "0.875rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -622,6 +633,12 @@
                 "accordion_row_BNDAf9",
                 "accordion_row_ExLhhf"
               ]
+            },
+            "videowise_video_commerce_videowise_page_widgets_jXYrAh": {
+              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+              "settings": {
+                "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f49228210ed004849eb81\"></div>"
+              }
             }
           },
           "block_order": [
@@ -632,7 +649,8 @@
             "recharge_subscriptions_subscription_widget_v2_REKHGJ",
             "purchase_options_product_gXDtU7",
             "buy_buttons_eYQEYi",
-            "accordion_btPhx3"
+            "accordion_btPhx3",
+            "videowise_video_commerce_videowise_page_widgets_jXYrAh"
           ]
         }
       },
@@ -648,8 +666,21 @@
         "padding-block-end": 0
       }
     },
+    "replo_pdp_deep_balm_btf_stack_ihNeiQ": {
+      "type": "replo-pdp-deep-balm-btf-stack",
+      "name": "PDP Deep Balm — BTF Stack",
+      "settings": {}
+    },
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    }
   },
   "order": [
     "main",
+    "replo_pdp_deep_balm_btf_stack_ihNeiQ",
+    "hue-mini-review-module"
   ]
 }

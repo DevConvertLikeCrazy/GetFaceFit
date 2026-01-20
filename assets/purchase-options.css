@@ -47,7 +47,8 @@
 	vertical-align: middle;
 	background: #0064E6;
 	color: #fff;
-	padding: 4px 12px;
+	padding: 0 8px;
+	display: inline-block;
 }
 
 .purchase-type__tab input,
@@ -136,6 +137,10 @@
 	vertical-align: middle;
 }
 
+.tier-badge.mobile{
+	display: none;
+}
+
 .tier-price {
 	font-weight: 400;
 	font-size: 15px;
@@ -154,6 +159,7 @@
 	text-align: right;
 	vertical-align: middle;
 	color: #00000080;
+	text-decoration: line-through;
 }
 
 .subscription-options__list{
@@ -217,5 +223,13 @@
 @media (max-width: 990px) {
 	.purchase-type__tabs{
 		margin-bottom: 26px;
+	}
+
+	.tier-badge{
+		display: none;
+	}
+	
+	.tier-badge.mobile{
+		display: block;
 	}
 }

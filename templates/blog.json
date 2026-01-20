@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-blog",
@@ -21,7 +22,9 @@
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
+            "font_weight": 500,
             "font_size": "",
+            "font_size_mobile": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -29,6 +32,7 @@
             "color": "",
             "background": false,
             "background_color": "#00000026",
+            "text_color": "#000000",
             "corner_radius": 0,
             "padding-block-start": 48,
             "padding-block-end": 48,
@@ -83,6 +87,23 @@
               },
               "blocks": {}
             },
+            "content": {
+              "type": "_blog-post-description",
+              "static": true,
+              "settings": {
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 16,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "image": {
               "type": "_blog-post-image",
               "static": true,
@@ -102,14 +123,50 @@
       "block_order": [
         "title"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 48
       }
+    },
+    "clc_journal_hp_EdaKbq": {
+      "type": "clc-journal-hp",
+      "name": "clc-journal-hp",
+      "settings": {
+        "blog": "news",
+        "show_all": true,
+        "heading": "Learn With the Get Face Fit Journal",
+        "title_cl": "#000000",
+        "title_fs": 32,
+        "title_fs_mob": 24,
+        "text_alignment": "left",
+        "cta_label": "",
+        "cta_url": "",
+        "btn_cl": "#000000",
+        "btn_fs": 16,
+        "btn_fs_mob": 16,
+        "underline": true,
+        "btn_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mob": 60,
+        "padding_bottom_mob": 60,
+        "blog_cl": "#00000080",
+        "blog_fs": 16,
+        "blog_fs_mob": 14,
+        "blog_title_cl": "#434343",
+        "blog_title_fs": 20,
+        "blog_title_fs_mob": 18,
+        "blog_btn_cl": "#000000",
+        "blog_btn_fs": 18,
+        "blog_btn_fs_mob": 16,
+        "btn_underline": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "clc_journal_hp_EdaKbq"
   ]
 }

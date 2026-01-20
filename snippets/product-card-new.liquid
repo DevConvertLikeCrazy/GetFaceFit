@@ -7,11 +7,15 @@
         {%- endif -%}
     </div>
 
-    {%- if block.settings.rating != blank -%}
+    {%- if section.settings.show_ratings == true -%}
+        <div class="section-products__rating" data-oke-star-rating {{ product_data_attribute }}>{{ product.metafields.okendo.StarRatingSnippet }}</div>
+    {%- endif -%}
+
+    {% comment %} {%- if block.settings.rating != blank -%}
         <div class="section-products__rating">
             <img width="{{ section.settings.rating_width }}" height="{{ section.settings.rating_height }}" src="{{ block.settings.rating | img_url: 'master' }}" alt="{{ block.settings.rating.alt }}">
         </div>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     <div class="section-products__title-price">
         <div class="section-products__prodtitle">{{ product.title }}</div>
