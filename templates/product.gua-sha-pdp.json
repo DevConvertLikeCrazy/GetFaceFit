@@ -312,7 +312,7 @@
                 "accordion_row_CrCPxQ": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Why You’ll Love It?",
+                    "heading": "Why You’ll Love It",
                     "open_by_default": false,
                     "padding_top": 0,
                     "padding_bottom": 10,
@@ -359,7 +359,7 @@
                 "accordion_row_eQFgRK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How To use?",
+                    "heading": "How to use",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
@@ -406,7 +406,7 @@
                 "accordion_row_BNDAf9": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "What’s Made Of?",
+                    "heading": "Material & Ingredients",
                     "open_by_default": false,
                     "padding_top": 20,
                     "padding_bottom": 10,
