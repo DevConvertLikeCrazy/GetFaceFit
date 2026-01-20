@@ -179,7 +179,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>The <strong>Deep Balm</strong> nourishes and strengthens the skin, while the <strong>Gua Sha</strong> lifts and tones from the root. Together they support healthy fascia, boost circulation, and build lasting firmness for smoother, more defined skin</p>",
+                    "text": "<p>The <strong>Deep Balm</strong> nourishes and strengthens the skin, while the <strong>Gua Sha</strong> lifts and tones from the root.</p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
