@@ -673,6 +673,7 @@
     },
     "hue-mini-review-module": {
       "type": "hue-mini-review-section",
+      "disabled": true,
       "custom_css": [],
       "settings": {}
     }
