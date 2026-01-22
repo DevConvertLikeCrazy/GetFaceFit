@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -24,7 +15,7 @@
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "thumbnails",
             "thumbnail_position": "bottom",
-            "aspect_ratio": "1/1",
+            "aspect_ratio": "1\/1",
             "constrain_to_viewport": false,
             "media_fit": "cover",
             "media_radius": 0,
@@ -32,10 +23,10 @@
             "zoom": false,
             "video_loop": false,
             "hide_variants": false,
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/0b9bff9a3d2a4263b2b4ed01d2254636.mp4",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0b9bff9a3d2a4263b2b4ed01d2254636.mp4",
             "video_width": 100,
             "mob_video_width": 100,
-            "button_icon": "shopify://shop_images/Vector.svg",
+            "button_icon": "shopify:\/\/shop_images\/Vector.svg",
             "icon_width": 10,
             "mob_icon_width": 10,
             "button_text": "See it in Action",
@@ -119,7 +110,7 @@
               },
               "blocks": {
                 "okendo_star_rating_VFtcca": {
-                  "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                  "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
                   "settings": {
                     "product": "head-in-the-clouds-scalp-gua-sha"
                   }
@@ -180,7 +171,7 @@
                   "type": "product-description",
                   "name": "t:names.product_description",
                   "settings": {
-                    "text": "<p>A hand-crafted sculpting tool that lifts, tones, and releases fascia while boosting circulation for a naturally defined, lifted look</p>",
+                    "text": "<p>A hand-crafted sculpting tool that lifts, tones, and releases fascia while boosting circulation for a naturally defined, lifted look<\/p>",
                     "rows": 4,
                     "width": "fit-content",
                     "max_width": "normal",
@@ -318,7 +309,7 @@
                     "padding_bottom": 10,
                     "mob_padding_top": 0,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": false,
+                    "disable_top_divider": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -326,7 +317,7 @@
                     "text_QYzrHk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Your scalp carries more tension than you think — this tool helps release it.</p><ul><li>Releases deep fascia tension for a lifted, sculpted look</li><li>Stimulates lymphatic flow to debloat and awaken glow</li><li>Boosts circulation to support healthy hair and radiant skin</li><li>Hand-crafted from smooth ox horn for a grounding glide</li><li>Designed by facial expert Olivia Szmidt for at-home results</li></ul><p>The Gua Sha that turns scalp care into self-care, one glide at a time.</p>",
+                        "text": "<p>Your scalp carries more tension than you think — this tool helps release it.<\/p><ul><li>Releases deep fascia tension for a lifted, sculpted look<\/li><li>Stimulates lymphatic flow to debloat and awaken glow<\/li><li>Boosts circulation to support healthy hair and radiant skin<\/li><li>Hand-crafted from smooth ox horn for a grounding glide<\/li><li>Designed by facial expert Olivia Szmidt for at-home results<\/li><\/ul><p>The Gua Sha that turns scalp care into self-care, one glide at a time.<\/p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -365,7 +356,7 @@
                     "padding_bottom": 10,
                     "mob_padding_top": 16,
                     "mob_padding_bottom": 8,
-                    "disable_top_divider": true,
+                    "disable_top_divider": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -373,7 +364,7 @@
                     "text_BCrtQi": {
                       "type": "text",
                       "settings": {
-                        "text": "<ol><li><strong>Start:</strong> Lightly oil the scalp or hairline for smoother glide.</li><li><strong>Massage:</strong> Glide the tool upward from the nape to the top of the head.</li><li><strong>Target:</strong> Work around temples, behind ears, and along the neck to encourage flow.</li><li><strong>Relieve:</strong> Move slowly to release tension and awaken fascia.</li><li><strong>End:</strong> Finish with deep breaths and gentle pressure over the crown.</li></ol><p>Use daily to release stress, energize the scalp, and visibly lift facial contours.</p>",
+                        "text": "<ol><li><strong>Start:<\/strong> Lightly oil the scalp or hairline for smoother glide.<\/li><li><strong>Massage:<\/strong> Glide the tool upward from the nape to the top of the head.<\/li><li><strong>Target:<\/strong> Work around temples, behind ears, and along the neck to encourage flow.<\/li><li><strong>Relieve:<\/strong> Move slowly to release tension and awaken fascia.<\/li><li><strong>End:<\/strong> Finish with deep breaths and gentle pressure over the crown.<\/li><\/ol><p>Use daily to release stress, energize the scalp, and visibly lift facial contours.<\/p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -420,7 +411,7 @@
                     "text_e3Qhgm": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Each Gua Sha is hand-crafted from ethically sourced ox horn, a fascia-friendly material revered for its smooth glide, natural antibacterial properties, and static-free texture. Sustainably made, biodegradable, and designed to last, every piece is unique in tone and grain, honoring traditional craftsmanship with a modern purpose.</p>",
+                        "text": "<p>Each Gua Sha is hand-crafted from ethically sourced ox horn, a fascia-friendly material revered for its smooth glide, natural antibacterial properties, and static-free texture. Sustainably made, biodegradable, and designed to last, every piece is unique in tone and grain, honoring traditional craftsmanship with a modern purpose.<\/p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -468,7 +459,7 @@
                     "text_EKQ9BB": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.<\/p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -507,9 +498,9 @@
               ]
             },
             "videowise_video_commerce_videowise_page_widgets_8cm9nY": {
-              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+              "type": "shopify:\/\/apps\/videowise-video-commerce\/blocks\/videowise-page-widgets\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
               "settings": {
-                "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f53b989d06549d388de0c\"></div>"
+                "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f53b989d06549d388de0c\"><\/div>"
               }
             }
           },
