@@ -667,6 +667,7 @@
     cursor: pointer;
     right: 0;
     top: 0;
+    z-index: 99999;
   }
 
   .popup-video__cross svg {
@@ -832,6 +833,10 @@ slideshow-slide[aria-hidden="false"] {
   z-index: 2;
 }
 
+body.scroll-locked {
+  overflow: hidden !important;
+}
+
 {% endstylesheet %}
 
 <script>
@@ -845,9 +850,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openBtn && overlay && popup && closeBtn && popupBox) {
     const videoEl = popup.querySelector('video');
 
+    const lockScroll = () => {
+      document.body.classList.add('scroll-locked');
+    };
+
+    const unlockScroll = () => {
+      document.body.classList.remove('scroll-locked');
+    };
+
     openBtn.addEventListener('click', () => {
       overlay.classList.add('active');
       popup.classList.add('active');
+      lockScroll();
+
       if (videoEl) {
         videoEl.currentTime = 0;
         videoEl.play();
@@ -857,6 +872,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const closePopup = () => {
       overlay.classList.remove('active');
       popup.classList.remove('active');
+      unlockScroll();
+
       if (videoEl) {
         videoEl.pause();
         videoEl.currentTime = 0;
