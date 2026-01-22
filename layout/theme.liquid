@@ -4,6 +4,11 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <script>
+      if (window.location.pathname === '/products/head-in-the-clouds-scalp-gua-sha-b') {
+        window.location.replace('/products/head-in-the-clouds-scalp-gua-sha');
+      }
+    </script>
 {% render 'replo-head' %}
     {%- render 'stylesheets' -%}
 
