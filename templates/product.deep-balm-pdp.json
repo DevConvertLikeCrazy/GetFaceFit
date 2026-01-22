@@ -671,15 +671,15 @@
       "name": "PDP Deep Balm — BTF Stack",
       "settings": {}
     },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "custom_css": [],
-      "settings": {}
-    }
+    // "hue-mini-review-module": {
+    //   "type": "hue-mini-review-section",
+    //   "custom_css": [],
+    //   "settings": {}
+    // }
   },
   "order": [
     "main",
     "replo_pdp_deep_balm_btf_stack_ihNeiQ",
-    "hue-mini-review-module"
+    // "hue-mini-review-module"
   ]
 }
