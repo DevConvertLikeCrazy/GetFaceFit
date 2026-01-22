@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -525,10 +534,10 @@
         "padding-block-end": 0
       }
     },
-    "hue-mini-review-module": {
-      "type": "hue-mini-review-section",
-      "settings": {}
-    },
+    // "hue-mini-review-module": {
+    //   "type": "hue-mini-review-section",
+    //   "settings": {}
+    // },
     "replo_pdp_gua_sha_sections_nVagNj": {
       "type": "replo-pdp-gua-sha-sections",
       "name": "PDP Gua Sha — Sections",
@@ -537,7 +546,7 @@
   },
   "order": [
     "main",
-    "hue-mini-review-module",
+    // "hue-mini-review-module",
     "replo_pdp_gua_sha_sections_nVagNj"
   ]
 }
