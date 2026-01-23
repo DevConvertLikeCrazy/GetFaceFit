@@ -35,6 +35,12 @@
     font-weight: {{ block.settings.tab_text_fw }}; 
   }
 
+  .tier-info{
+    color: {{ block.settings.tab_info_cl }};
+    font-size: {{ block.settings.tab_info_fs }}px;
+    font-weight: {{ block.settings.tab_info_fw }}; 
+  }
+
   .tier-text em{
     color: {{ block.settings.tab_text_cl }};
     font-size: {{ block.settings.tab_text_small_fs }}px;
@@ -82,6 +88,10 @@
       font-weight: {{ block.settings.tab_text_fw_mob }}; 
     }
 
+    .tier-info{
+      font-size: {{ block.settings.tab_info_fs_mob }}px;
+    }
+
     .tier-text em{
       font-size: {{ block.settings.tab_text_small_fs_mob }}px;
     }
@@ -100,7 +110,8 @@
   }
 {%- endstyle -%}
 
-<div class="purchase-type">
+
+<div class="purchase-type" {% if block.settings.show_type == false %} style="display: none"{% endif %}>
   <h4 class="purchase-type__title">{{ block.settings.block_title }}</h4>
 
   <div class="purchase-type__tabs">
@@ -126,6 +137,80 @@
     {%- assign one_time_keywords = 'one-time,1 time,buy once,single' | split: ',' -%}
 
 
+    {%- assign otp_variant = nil -%}
+
+
+    {%- for variant in product.variants -%}
+      {%- assign v_title = variant.title | downcase -%}
+
+      {%- comment -%} Detect OTP variant once and store it {%- endcomment -%}
+      {%- if otp_variant == nil -%}
+        {%- for word in one_time_keywords -%}
+          {%- if v_title contains word -%}
+            {%- assign otp_variant = variant -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%} OTP card under subscription cards {%- endcomment -%}
+    {%- if otp_variant -%}
+      <li class="subscription-tier subscription-tier--otp"{% if block.settings.show_type == true %} style="display: none"{% endif %}>
+        <label class="tier-label">
+          <div class="tier-content-wrapper">
+            <input
+              type="radio"
+              class="tier-input"
+              name="subscription_tier"
+              value=""
+              data-selling-plan=""
+              data-variant-id="{{ otp_variant.id }}"
+              data-quantity="1"
+              data-price="{{ otp_variant.price }}"
+              data-base-price="{{ otp_variant.price }}"
+              data-total-discounted="{{ otp_variant.price }}"
+              data-total-base="{{ otp_variant.price }}"
+            >
+
+            <div class="tier-left">
+
+              {%- assign no_title = false -%}
+
+              {%- for item in product.metafields.custom.purchase_text.value -%}
+                {%- if item.title_id == otp_variant.title -%}
+                  {%- if item.title != blank -%}
+                    <span class="tier-title">{{ item.title | metafield_tag }}</span>
+                    {%- assign no_title = true -%}
+                  {%- else -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              
+              {%- if no_title == false -%}
+                <span class="tier-title">{{ otp_variant.title }}</span>
+              {%- endif -%}
+
+            </div>
+          </div>
+         
+
+          <div class="tier-content">
+            <div class="tier-right">
+              {%- for item in product.metafields.custom.purchase_text.value -%}
+                {%- if item.title_id == otp_variant.title -%}
+                  <div class="tier-text">{{ item.text | metafield_tag }}</div>
+                {%- endif -%}
+              {%- endfor -%}
+              <div class="tier-prices">
+                <span class="tier-price">{{ otp_variant.price | money }}</span>
+              </div>
+            </div>
+          </div>
+        </label>
+       
+      </li>
+    {%- endif -%}
 
     {%- for variant in product.variants -%}
       {% assign is_last = forloop.last %}
@@ -187,23 +272,23 @@
 
         <li class="subscription-tier">
           <label class="tier-label">
-            <input
-              type="radio"
-              class="tier-input"
-              name="subscription_tier"
-              value="{{ matched_plan.id | default: '' }}"
-              data-selling-plan="{{ matched_plan.id | default: '' }}"
-              data-variant-id="{{ variant.id }}"
-              data-quantity="{{ months_num }}"
-              data-price="{{ unit_discounted_price }}"
-              data-base-price="{{ unit_base_price }}"
-              data-total-discounted="{{ unit_discounted_price | times: months_num }}"
-              data-total-base="{{ unit_base_price | times: months_num }}"
-              {% if is_last %}checked{% endif %}
-            >
-
+           
             <div class="tier-content">
-              <div class="tier-left">
+              <div class="tier-content-wrapper">
+                <input
+                  type="radio"
+                  class="tier-input"
+                  name="subscription_tier"
+                  value="{{ matched_plan.id | default: '' }}"
+                  data-selling-plan="{{ matched_plan.id | default: '' }}"
+                  data-variant-id="{{ variant.id }}"
+                  data-quantity="{{ months_num }}"
+                  data-price="{{ unit_discounted_price }}"
+                  data-base-price="{{ unit_base_price }}"
+                  data-total-discounted="{{ unit_discounted_price | times: months_num }}"
+                  data-total-base="{{ unit_base_price | times: months_num }}"
+                  {% if is_last %}checked{% endif %}
+                >
 
                 {% if months_num > 1 %}
                   {%- assign title = "Every " | append: months_num | append: ' months' -%}
@@ -226,21 +311,38 @@
                   <span class="tier-title">{{ title }}</span>
                 {%- endif -%}
 
+              </div>
+               
+              <div class="tier-left">
                 {% if savings_per_unit > 0 %}
                   <span class="tier-badge">{{ block.settings.save_text }} {{ savings_per_unit | money }}</span>
                 {% endif %}
               </div>
-              <div class="tier-right">
-                <div class="tier-prices">
-                  {% if savings_per_unit > 0 %}
-                    <span class="tier-badge mobile">{{ block.settings.save_text }} {{ savings_per_unit | money }}</span>
-                  {% endif %}
-                  <span class="tier-price">{{ unit_discounted_price | money }} / month</span>
-                  {% if savings_per_unit > 0 %}
-                    <span class="tier-compare">{{ fix_price | money }}</span>
-                  {% endif %}
-                </div>
+            
+            </div>
+            <div class="tier-right">
+              <span class="tier-price">
+                {% if savings_per_unit > 0 %}
+                  <span class="tier-compare mobile">{{ fix_price | money }}</span>
+                {% endif %}
+
+                {{ unit_discounted_price | money }} / month
+                </span>
+
+              <div class="tier-info-compare">
+                {%- for item in product.metafields.custom.purchase_text.value -%}
+                  {%- if item.title_id == title -%}
+                    {%- if item.info != blank -%}
+                      <span class="tier-info">{{ item.info | metafield_tag }}</span>
+                    {%- else -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {% if savings_per_unit > 0 %}
+                  <span class="tier-compare">{{ fix_price | money }}</span>
+                {% endif %}
               </div>
+             
             </div>
           </label>
 
@@ -474,6 +576,12 @@
   "name": "Purchase Option",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_type",
+      "label": "Show purchase type",
+      "default": false
+    },
     {
       "type": "text",
       "id": "block_title",
@@ -744,6 +852,54 @@
       "unit": "px",
       "label": "Compare price font-size mobile",
       "default": 14
+    },
+    {
+      "type": "color",
+      "id": "tab_info_cl",
+      "label": "Text color",
+      "default": "#0064E6"
+    },
+
+    {
+      "type": "range",
+      "id": "tab_info_fs",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Info font-size",
+      "default": 18
+    },
+
+    {
+      "type": "select",
+      "id": "tab_info_fw",
+      "label": "Info font-weight",
+      "options": [
+        {
+          "value": "600",
+          "label": "SemiBold"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "400",
+          "label": "Light"
+        },
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "tab_info_fs_mob",
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Info font-size mobile",
+      "default": 12
     },
     {
       "type": "color",
