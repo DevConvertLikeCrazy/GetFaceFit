@@ -537,6 +537,7 @@
     },
     "hue-mini-review-module": {
       "type": "hue-mini-review-section",
+      "disabled": true,
       "settings": {}
     },
     "replo_pdp_gua_sha_sections_nVagNj": {
