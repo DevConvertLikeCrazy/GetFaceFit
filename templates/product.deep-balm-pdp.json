@@ -311,7 +311,7 @@
               "type": "purchase_options_product",
               "name": "Purchase Option",
               "settings": {
-                "show_type": true,
+                "show_type": false,
                 "block_title": "Purchase Type:",
                 "title_cl": "#000000",
                 "title_fs": 22,
