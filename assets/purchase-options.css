@@ -241,7 +241,9 @@
 
 
 
-
+/* 
+For old version
+---------------------------------------------------- */
 
 .onetime-options__list .tier-label {
 	display: flex;
@@ -313,10 +315,13 @@
 }
 
 .onetime-options__list .tier-compare {
-display: block;
+	display: block;
 }
 }
 
+
+
+/* ---------------------------------------------------- */
 
 
 @media (max-width: 990px) {
