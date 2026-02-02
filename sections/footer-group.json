@@ -223,24 +223,18 @@
                   },
                   "blocks": {}
                 },
-                "localization_dropdown_Bjhqp3": {
-                  "type": "localization-dropdown",
-                  "name": "Localization dropdown",
+                "custom_liquid_PQWJUp": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
                   "settings": {
-                    "show_language": true,
-                    "show_country": true,
-                    "country_selector_style": false,
-                    "localization_position": "left",
-                    "hide_on_mobile": false,
-                    "padding_y": 0,
-                    "localization_background_color": "#ffffff"
+                    "custom_liquid": "<selector-root data-id=ZM710026 id=\"ZM710026\"></selector-root>"
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
                 "text_JgVXY7",
-                "localization_dropdown_Bjhqp3"
+                "custom_liquid_PQWJUp"
               ]
             }
           },
