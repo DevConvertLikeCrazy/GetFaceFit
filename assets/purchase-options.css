@@ -295,7 +295,9 @@
 	margin: 0;
 }
 
-]
+.onetime-options__list .tier-badge.mobile {
+	display: none;
+}
 
 
 
