@@ -641,7 +641,6 @@
             },
             "videowise_video_commerce_videowise_page_widgets_jXYrAh": {
               "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-              "disabled": true,
               "settings": {
                 "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f49228210ed004849eb81\"></div>"
               }
@@ -656,7 +655,7 @@
             "purchase_options_product_gXDtU7",
             "buy_buttons_eYQEYi",
             "accordion_btPhx3",
-            // "videowise_video_commerce_videowise_page_widgets_jXYrAh"
+            "videowise_video_commerce_videowise_page_widgets_jXYrAh"
           ]
         }
       },
@@ -677,15 +676,16 @@
       "name": "PDP Deep Balm — BTF Stack",
       "settings": {}
     },
-    // "hue-mini-review-module": {
-    //   "type": "hue-mini-review-section",
-    //   "custom_css": [],
-    //   "settings": {}
-    // }
+    "hue-mini-review-module": {
+      "type": "hue-mini-review-section",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    }
   },
   "order": [
     "main",
     "replo_pdp_deep_balm_btf_stack_ihNeiQ",
-    // "hue-mini-review-module"
+    "hue-mini-review-module"
   ]
 }
