@@ -326,7 +326,7 @@
                 "badge_bg": "#0064e6",
                 "badge_fs": 18,
                 "badge_fs_mob": 16,
-                "subscribe_title": "Delivery Schedule",
+                "subscribe_title": "Schedule",
                 "choose_quantity": "Choose Quantity",
                 "content_cl": "#000000",
                 "content_fs": 22,
@@ -334,25 +334,25 @@
                 "save_text": "Save",
                 "tab_title_cl": "#000000",
                 "tab_title_fs": 16,
-                "tab_title_fs_mob": 15,
+                "tab_title_fs_mob": 14,
                 "tab_badge_cl": "#ffffff",
                 "tab_badge_bg": "#0064e6",
                 "tab_badge_fs": 16,
-                "tab_badge_fs_mob": 18,
+                "tab_badge_fs_mob": 15,
                 "tab_price_cl": "#000000",
                 "tab_price_fs": 15,
                 "tab_price_fs_mob": 12,
-                "tab_price_compare_cl": "#8b8b8b",
-                "tab_price_compare_fs": 13,
+                "tab_price_compare_cl": "#00000080",
+                "tab_price_compare_fs": 14,
                 "tab_price_compare_fs_mob": 12,
                 "tab_info_cl": "#0064e6",
-                "tab_info_fs": 15,
+                "tab_info_fs": 18,
                 "tab_info_fw": "600",
-                "tab_info_fs_mob": 14,
-                "tab_text_cl": "#000000",
-                "tab_text_fs": 16,
+                "tab_info_fs_mob": 12,
+                "tab_text_cl": "#00000080",
+                "tab_text_fs": 15,
                 "tab_text_fw": "400",
-                "tab_text_fs_mob": 13,
+                "tab_text_fs_mob": 14,
                 "tab_text_fw_mob": "400",
                 "tab_text_small_fs": 13,
                 "tab_text_small_fs_mob": 13
@@ -638,13 +638,6 @@
                 "accordion_row_BNDAf9",
                 "accordion_row_ExLhhf"
               ]
-            },
-            "videowise_video_commerce_videowise_page_widgets_jXYrAh": {
-              "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-              "disabled": true,
-              "settings": {
-                "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_691f49228210ed004849eb81\"></div>"
-              }
             }
           },
           "block_order": [
@@ -655,8 +648,7 @@
             "recharge_subscriptions_subscription_widget_v2_REKHGJ",
             "purchase_options_product_gXDtU7",
             "buy_buttons_eYQEYi",
-            "accordion_btPhx3",
-            // "videowise_video_commerce_videowise_page_widgets_jXYrAh"
+            "accordion_btPhx3"
           ]
         }
       },
@@ -676,16 +668,10 @@
       "type": "replo-pdp-deep-balm-btf-stack",
       "name": "PDP Deep Balm — BTF Stack",
       "settings": {}
-    },
-    // "hue-mini-review-module": {
-    //   "type": "hue-mini-review-section",
-    //   "custom_css": [],
-    //   "settings": {}
-    // }
+    }
   },
   "order": [
     "main",
-    "replo_pdp_deep_balm_btf_stack_ihNeiQ",
-    // "hue-mini-review-module"
+    "replo_pdp_deep_balm_btf_stack_ihNeiQ"
   ]
 }
