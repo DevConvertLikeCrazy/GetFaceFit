@@ -162,7 +162,6 @@ class ProductFormComponent extends Component {
    */
   handleSubmit(event) {
     const { addToCartTextError } = this.refs;
-    // Stop default behaviour from the browser
     event.preventDefault();
 
     if (this.#timeout) clearTimeout(this.#timeout);
@@ -170,9 +169,7 @@ class ProductFormComponent extends Component {
     // Check if the add to cart button is disabled and do an early return if it is
     if (this.refs.addToCartButtonContainer?.refs.addToCartButton?.getAttribute('disabled') === 'true') return;
 
-    // Send the add to cart information to the cart
     const form = this.querySelector('form');
-
     if (!form) throw new Error('Product form element missing');
 
     const formData = new FormData(form);
@@ -198,6 +195,20 @@ class ProductFormComponent extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response.status) {
+          // ---- custom error text with dynamic product name ----
+          const rawErrorText = response.description || response.message || '';
+          const match = rawErrorText.match(/The product '([^']+)'/i);
+          const productName = match?.[1];
+
+          // Build final text (keep dynamic product name)
+          let errorText = rawErrorText;
+          if (productName) {
+            errorText = `The product '${productName}' is not shipping yet to your country.`;
+          } else {
+            // fallback if we couldn't parse the product name
+            errorText = `This product is not shipping yet to your country.`;
+          }
+
           this.dispatchEvent(
             new CartErrorEvent(form.getAttribute('id') || '', response.message, response.description, response.errors)
           );
@@ -208,14 +219,14 @@ class ProductFormComponent extends Component {
           // Reuse the text node if the user is spam-clicking
           const textNode = addToCartTextError.childNodes[2];
           if (textNode) {
-            textNode.textContent = response.message;
+            textNode.textContent = errorText;
           } else {
-            const newTextNode = document.createTextNode(response.message);
+            const newTextNode = document.createTextNode(errorText);
             addToCartTextError.appendChild(newTextNode);
           }
 
           // Create or get existing error live region for screen readers
-          this.#setLiveRegionText(response.message);
+          this.#setLiveRegionText(errorText);
 
           this.#timeout = setTimeout(() => {
             if (!addToCartTextError) return;
@@ -225,8 +236,6 @@ class ProductFormComponent extends Component {
             this.#clearLiveRegionText();
           }, 10000);
 
-          // When we add more than the maximum amount of items to the cart, we need to dispatch a cart update event
-          // because our back-end still adds the max allowed amount to the cart.
           this.dispatchEvent(
             new CartAddEvent({}, this.id, {
               didError: true,
@@ -247,7 +256,6 @@ class ProductFormComponent extends Component {
 
           if (!id) throw new Error('Form ID is required');
 
-          // Add aria-live region to inform screen readers that the item was added
           if (this.refs.addToCartButtonContainer?.refs.addToCartButton) {
             const addToCartButton = this.refs.addToCartButtonContainer.refs.addToCartButton;
             const addedTextElement = addToCartButton.querySelector('.add-to-cart-text--added');
@@ -274,7 +282,6 @@ class ProductFormComponent extends Component {
         console.error(error);
       })
       .finally(() => {
-        // add more thing to do in here if needed.
         cartPerformance.measureFromEvent('add:user-action', event);
       });
   }
